@@ -1,0 +1,218 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge Sam Belliveau} \\ \vspace{1pt}
+    \small +1 (646) 691-6208 $|$ \href{mailto:x@x.com}{\underline{sam.belliveau@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/...}{\underline{linkedin.com/in/sam-belliveau}} $|$
+    \href{https://github.com/...}{\underline{github.com/Sam-Belliveau}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Cornell University}{Ithica, NY}
+      {Bachelor of Engineering in Elecrtical Computer Engineering}{Aug. 2022 -- May 2026}
+    \resumeSubheading
+      {Stuyvesant High School}{New York, NY}
+      {Regents Diploma with Advanced Designation with Honors}{Sept. 2018 -- Jun. 2022}
+  \resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C / C++, Python, Java, Rust, Swift, Go, JavaScript, Verilog HDL, SQL, HTML, GLSL, Bash / ZSH} \\
+     \textbf{Technologies}{: Git, Linux, Docker, VS Code, Robot OS (ROS), Cassandra, BigQuery, Numpy, Scipy, PyTorch} \\
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Undergraduate Researcher}{June 2024 -- Present}
+      {Abe Davis's Group @ Cornell University}{Ithica, NY}
+      \resumeItemListStart
+        \resumeItem{Refactored ReCapture application to use modern SwiftUI frameworks \& coding practices}
+        \resumeItem{Built robust framework for storing image metadata in ReCapture to allow for easy retrieval}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Robotics Software Engineer}{November 2023 -- Present}
+      {Cornell University Autonomous Underwater Vehicles}{Ithaca, NY}
+      \resumeItemListStart
+        \resumeItem{Implemented high performance Kalman Filtering using Nvidia's CUDA framework for submarine localization}
+        \resumeItem{Implemented least squares optimization to determine thruster speeds for desired submarine movement}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Signal Analysis Intern}{January 2023 -- May 2023}
+      {Feinstein Institute for Medical Research}{Manhasset, NY}
+      \resumeItemListStart
+      \resumeItem{Automated Sharp Wave Ripple (SWR) detection using Python and SciPy to analyze EEG data}
+      \resumeItem{SWR’s are used to predict the onset of seizures, and potentially play a pivotal role in memory formation}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {VEX Robotics Tutor / Coach}{October 2022 -- May 2023}
+      {PLAYIDEAs NY}{Great Neck, NY}
+      \resumeItemListStart
+      \resumeItem{Coached a local High School VEX Robotics Team \#99588, Checkmate Robotics}
+      \resumeItem{Used my experience with robot control theory like PID and Odometry to help teach and advance the team}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Intern on Consumer Product Team}{July 2022 -- September 2022}
+      {Reddit Inc.}{Remote}
+      \resumeItemListStart
+      \resumeItem{Worked with Taxonomy Group which was responsible for managing statistics in order to classify subreddits}
+      \resumeItem{Developed a script that created realistic synthetic data in order to test the accuracy of the ML models}
+      \resumeItem{Added more detailed statistics pertaining to each subreddit, allowing them to be reviewed more quickly}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Intern on Consumer Product Team}{July 2021 -- September 2021}
+      {Reddit Inc.}{Remote}
+      \resumeItemListStart
+      \resumeItem{Created comprehensive unit tests to catch bugs before deploying to production}
+      \resumeItem{Worked with tools such as BigQuery and Cassandra to send notifications reminding moderators to fill out surveys}
+    \resumeItemListEnd
+
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Dolphin Emulator} $|$ \emph{C++, GLSL, JIT Recompilation, Hardware Hacking}}{September 2022 -- Present}
+          \resumeItemListStart
+            \resumeItem{Improved emulation performance for low-end devices through dynamically modifying video interrupt timings}
+            \resumeItem{Introduced mathematically accurate and comprehensive resolution scaling for improved image quality}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Flying Dutchman} $|$ \emph{Rust, Min Max, Alpha Beta Pruning, Chess}}{June 2023 -- July 2023}
+          \resumeItemListStart
+            \resumeItem{Developed a Chess Engine in Rust that achieved an Elo of ~2700}
+            \resumeItem{Familiarized myself with Rust \& Alpha Beta Pruning in order to optimize the engine}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
