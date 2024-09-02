@@ -148,16 +148,16 @@
       {Undergraduate Researcher}{June 2024 -- Present}
       {Abe Davis's Group @ Cornell University}{Ithaca, NY}
       \resumeItemListStart
-        \resumeItem{Refactored ReCapture application to use modern SwiftUI frameworks \& coding practices}
-        \resumeItem{Built robust framework for storing image metadata in ReCapture to allow for easy retrieval}
+        \resumeItem{Rewrote 7,252 lines of code to build a well documented, expandable foundation for the ReCapture project in Swift}
+        \resumeItem{Implemented a dynamic database in ReCapture, allowing for the storage and indexing of 20+ forms of metadata}
       \resumeItemListEnd
       
     \resumeSubheading
       {Robotics Software Engineer}{November 2023 -- Present}
       {Cornell University Autonomous Underwater Vehicles}{Ithaca, NY}
       \resumeItemListStart
-        \resumeItem{Implemented high performance Kalman Filtering using Nvidia's CUDA framework for submarine localization}
-        \resumeItem{Implemented least squares optimization to determine thruster speeds for desired submarine movement}
+        \resumeItem{Reduced CPU usage by 80\% by implementing Kalman Filtering using Nvidia's CUDA framework for linear algebra}
+        \resumeItem{Improved submarine movement by implementing least squares optimization for determining thruster}
     \resumeItemListEnd
 
     \resumeSubheading
@@ -165,24 +165,16 @@
       {Feinstein Institute for Medical Research}{Manhasset, NY}
       \resumeItemListStart
       \resumeItem{Automated Sharp Wave Ripple (SWR) detection using Python and SciPy to analyze EEG data}
-      \resumeItem{SWR’s are used to predict the onset of seizures, and potentially play a pivotal role in memory formation}
-    \resumeItemListEnd
-
-    \resumeSubheading
-      {VEX Robotics Tutor / Coach}{October 2022 -- May 2023}
-      {PLAYIDEAs NY}{Great Neck, NY}
-      \resumeItemListStart
-      \resumeItem{Coached a local High School VEX Robotics Team \#99588, Checkmate Robotics}
-      \resumeItem{Used my experience with robot control theory like PID and Odometry to help teach and advance the team}
+      \resumeItem{Researched SWRs, which help predict the onset of seizures, in order to improve the accuracy of the detection}
     \resumeItemListEnd
 
     \resumeSubheading
       {Software Intern on Consumer Product Team}{July 2022 -- September 2022}
       {Reddit Inc.}{Remote}
       \resumeItemListStart
-      \resumeItem{Worked with Taxonomy Group which was responsible for managing statistics in order to classify subreddits}
-      \resumeItem{Developed a script that created realistic synthetic data in order to test the accuracy of the ML models}
-      \resumeItem{Added more detailed statistics pertaining to each subreddit, allowing them to be reviewed more quickly}
+      \resumeItem{Worked with Taxonomy Group, which classified the safety of the +138,000 on Reddit}
+      \resumeItem{Developed a script that created realistic test data in order to verify the accuracy of the safety classification models}
+      \resumeItem{Improved flagging of problematic content by adding statistics to the dashboard to find content that needed review}
     \resumeItemListEnd
 
     \resumeSubheading
@@ -200,17 +192,26 @@
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+        {\textbf{ReCapture} $|$ \emph{Swift, SwiftUI, iOS, Json, OpenCV}}{June 2024 -- August 2024}
+        \resumeItemListStart
+          \resumeItem{Rewrote ReCapture, an application that helps users take photos of subjects over time in order to create timelapses}
+          \resumeItem{Expanded metadata capabilities, allowing for the fast indexing of 20+ features over a large set of images}
+            \resumeItemListEnd
+
       \resumeProjectHeading
           {\textbf{Dolphin Emulator} $|$ \emph{C++, GLSL, JIT Recompilation, Hardware Hacking}}{September 2022 -- Present}
           \resumeItemListStart
-            \resumeItem{Improved emulation performance for low-end devices through dynamically modifying video interrupt timings}
-            \resumeItem{Introduced mathematically accurate and comprehensive resolution scaling for improved image quality}
+            \resumeItem{Improved performance of emulation software by scaling frequency of video interrupt signals for low-end hardware}
+            \resumeItem{Introduced 6 GPU accelerated resolution scaling algorithms to improve the image quality for all display resolution}
           \resumeItemListEnd
+
       \resumeProjectHeading
           {\textbf{Flying Dutchman} $|$ \emph{Rust, Min Max, Alpha Beta Pruning, Chess}}{June 2023 -- July 2023}
           \resumeItemListStart
-            \resumeItem{Developed a Chess Engine in Rust that achieved an Elo of ~2700}
-            \resumeItem{Familiarized myself with Rust \& Alpha Beta Pruning in order to optimize the engine}
+            \resumeItem{Developed a Chess Engine in Rust that achieved an Elo of ~2700 (Grand Master level)}
+            \resumeItem{Implemented Alpha Beta Pruning using high performance Rust to achieve a higher elo rating}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
