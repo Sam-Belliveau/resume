@@ -1,5 +1,4 @@
 
-
 \newcommand{\resumeItem}[1]{
   \item\small{
     {#1 \vspace{-2pt}}
@@ -28,11 +27,26 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[1]{
+  \resumeItem{#1}
+  \vspace{-4pt}
+}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+
+\newcommand{\resumeSubHeadingListEnd}{
+  \end{itemize}
+}
+
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}
+}
+
+\newcommand{\resumeItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
