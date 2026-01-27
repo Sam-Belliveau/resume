@@ -15,15 +15,53 @@
 \input{components/resume/heading/common.tex}
 
 %----------------------= EDUCATION =-----------------------%
-\input{components/resume/education/robotics.tex}
+\section{Education}
+    \resumeSubHeadingListStart
+        \input{components/resume/education/cornell.tex}
+
+        \begin{itemize}[leftmargin=0.15in, label={}]
+            \small{\item{
+                \textbf{Related Courses}{: 
+                    Discrete Structures Computer Science I - III, 
+                    Digital Logic \& Computer Organization, 
+                    \\ \hspace{2.75cm}
+                    Differential Equations, 
+                    Linear Algebra,
+                    Signals \& Systems, 
+                    Phyisics Mechanics,
+                    \\ \hspace{2.75cm}
+                    Data Science for Engineers,
+                    Electromagnetic Fields and Waves
+                } \\
+            }}
+        \end{itemize}
+    \resumeSubHeadingListEnd
 
 %------------------------= SKILLS =------------------------%
-\input{components/resume/skills/robotics.tex}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+        \textbf{Languages}{: C, C++, C\#, Python, Java, Rust, Swift, Go, JavaScript, Verilog HDL, SQL, HTML, GLSL, Bash / ZSH} \\
+        \textbf{Technologies}{: Git, Linux, Docker, VS Code, Robot OS (ROS), Cassandra, BigQuery, Numpy, Scipy, PyTorch} \\
+    }}
+\end{itemize}
 
 %----------------------= EXPERIENCE =----------------------%
-\input{components/resume/experience/robotics.tex}
+\section{Experience}
+    \resumeSubHeadingListStart
+        \input{components/resume/experience/2024-abe-davis-research.tex}
+        \input{components/resume/experience/2023-cuauv-software.tex}
+        \input{components/resume/experience/2023-feinstein-signal-analysis.tex}
+        \input{components/resume/experience/2022-vex-robotics.tex}
+        \input{components/resume/experience/2018-stuypulse-robotics.tex}
+    \resumeSubHeadingListEnd
 
 %-----------------------= PROJECTS =-----------------------%
-\input{components/resume/projects/robotics.tex}
+\section{Projects}
+    \resumeSubHeadingListStart
+        \input{components/resume/projects/2023-flying-dutchman.tex}
+
+        \input{components/resume/projects/2020-stuylib.tex}
+    \resumeSubHeadingListEnd
+
 
 \end{document}

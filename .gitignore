@@ -1,4 +1,5 @@
 *
+.tex_build
 !.gitignore
 !*/
 !**/*.tex

@@ -15,15 +15,49 @@
 \input{components/resume/heading/common.tex}
 
 %----------------------= EDUCATION =-----------------------%
-\input{components/resume/education/swe.tex}
+\section{Education}
+    \resumeSubHeadingListStart
+        \input{components/resume/education/cornell.tex}
+        
+        \begin{itemize}[leftmargin=0.15in, label={}]
+            \small{\item{
+                \textbf{Related Courses}{: 
+                    Discrete Structures Computer Science I-III, 
+                    Introduction to Algorithms,
+                    Linear Algebra, 
+                    \\ \hspace{2.75cm}
+                    Differential Equations,
+                    Data Science for Engineers,
+                    Signals \& Systems
+                } \\
+            }}
+        \end{itemize}
+    \resumeSubHeadingListEnd
 
 %------------------------= SKILLS =------------------------%
-\input{components/resume/skills/swe.tex}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+        \textbf{Languages}{: C, C++, C\#, Python, Java, Rust, Swift, Go, JavaScript, Verilog HDL, SQL, HTML, GLSL, Bash / ZSH} \\
+        \textbf{Technologies}{: Git, Linux, Docker, VS Code, Robot OS (ROS), Cassandra, BigQuery, Numpy, Scipy, PyTorch, GenAI} \\
+    }}
+\end{itemize}
 
 %----------------------= EXPERIENCE =----------------------%
-\input{components/resume/experience/swe.tex}
+\section{Experience}
+    \resumeSubHeadingListStart
+        % \input{components/resume/experience/2024-abe-davis-research.tex}
+        \input{components/resume/experience/2023-cuauv-software.tex}
+        \input{components/resume/experience/2023-feinstein-signal-analysis.tex}
+        \input{components/resume/experience/2022-reddit-software.tex}
+        \input{components/resume/experience/2021-reddit-software.tex}
+    \resumeSubHeadingListEnd
 
 %-----------------------= PROJECTS =-----------------------%
-\input{components/resume/projects/swe.tex}
+\section{Projects}
+    \resumeSubHeadingListStart
+        \input{components/resume/projects/2023-flying-dutchman.tex}
+
+        \input{components/resume/projects/2022-dolphin-emu.tex}
+    \resumeSubHeadingListEnd
 
 \end{document}

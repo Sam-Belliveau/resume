@@ -1,3 +1,8 @@
+% ATS-friendly encoding packages
+\usepackage[T1]{fontenc}        % Proper font encoding for text extraction
+\usepackage[utf8]{inputenc}     % UTF-8 input encoding
+\input{glyphtounicode}          % Map glyphs to Unicode for ATS parsing
+
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -9,6 +14,10 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\input{glyphtounicode}
+\usepackage[protrusion=true,expansion=true,final,babel]{microtype}
 
 \setlength{\footskip}{4.08003pt}
+
+% make margins very small
+\usepackage{geometry}
+\geometry{margin=0.6in}
