@@ -1,5 +1,6 @@
 *
 .tex_build
+!Makefile
 !.gitignore
 !*/
 !**/*.tex
