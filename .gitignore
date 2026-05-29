@@ -1,7 +1,7 @@
-*
-.tex_build
-!Makefile
-!.gitignore
-!*/
-!**/*.tex
-!**/*.pdf
+# Build output — résumé PDFs are built by `just` locally and by CI, never committed.
+out/
+personal-context/
+*.pdf
+
+# macOS
+.DS_Store

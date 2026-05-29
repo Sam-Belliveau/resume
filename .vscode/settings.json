@@ -1,0 +1,5 @@
+{
+  "// note": "Lets the tinymist / Typst Preview extension find the bundled font in fonts/. Without this the resume font is missing and the preview renders blank (the template sets text fallback off on purpose).",
+  "tinymist.fontPaths": ["fonts"],
+  "tinymist.typstExtraArgs": ["--input", "draft=true"]
+}
