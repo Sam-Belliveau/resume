@@ -4,6 +4,6 @@
   school: "Cornell University",
   location: "Ithaca, NY",
   degree: "B.S. in Electrical & Computer Engineering",
-  dates: "Aug 2023 — May 2026",
+  dates: "08/2023 — 05/2026",
   gpa: "3.7 / 4.3",
 )
