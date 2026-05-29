@@ -13,6 +13,11 @@
 // draft build colour-codes lines that are too long or too short.
 #let draft = sys.inputs.at("draft", default: "true") != "false"
 
+// Geometric spacing scale: each tier is ×√2 the one below (the ISO-paper ratio),
+// anchored at the body line-rhythm (tier 2 = 1.0). A constant ratio reads as equal
+// perceptual steps where a linear scale would collapse the gaps between top tiers.
+#let tier(n) = calc.pow(calc.sqrt(2.0), n - 2)
+
 #let config = (
   draft: draft,
   page: (
@@ -24,13 +29,14 @@
     size: 10pt,
     fallback: false,
   ),
-  // Text sizes as multiples of `font.size`.
+  // Type sizes as multiples of `body` (= font.size), resolved by `fs`. Size ranks
+  // the structural levels; entry titles rank up by weight, so they cost no height.
   scale: (
-    name: 2.50,
-    section: 1.18,
-    title: 1.00,
-    body: 1.00,
-    detail: 0.92,
+    name: 2.50, //   the name — dominates the page
+    section: 1.10, // section headings (smallcaps + bold rank them too)
+    title: 1.00, //  entry titles — set apart by weight, not size
+    body: 1.00, //   reading baseline; the anchor for every other size
+    detail: 1.00, // supporting text — dates, roles, locations
   ),
   weight: (
     normal: "regular",
@@ -39,30 +45,27 @@
   ),
   // Paragraph line height. The only non-fr vertical metric, because it is a
   // property of the type, not padding between elements.
-  leading: 0.62em,
-  // Vertical gaps as fractional weights. Only the ratios between them matter.
-  // The range is kept moderate so that on a sparse page the structural gaps do
-  // not balloon while the intra-entry gaps collapse — every gap stays legibly
-  // proportional to every other.
+  leading: 0.4em,
+  // Vertical gaps, as `tier()` weights (only ratios matter). A gap's tier is how
+  // SEPARATE the two things it divides are in the document tree — proximity = grouping.
+  // `leading` sits below tier 0: wrapped lines of one bullet are a single sentence.
   space: (
     page_top: 0,
-    name_to_contact: 1.0,
-    section_before: 3.0,
-    section_rule: 0.6,
-    section_after: 1.3,
-    entry_gap: 2.4,
-    head_to_sub: 1.0,
-    sub_to_bullets: 1.3,
-    bullet_gap: 1.0,
+    section_before: tier(5), //  section ↔ section
+    section_rule: tier(0), //    heading ↔ its rule
+    section_after: tier(3), //   rule → first entry
+    entry_gap: tier(4), //       entry ↔ entry
+    head_to_sub: tier(1), //     org ↔ role
+    sub_to_bullets: tier(2), //  role → first bullet
+    bullet_gap: tier(2), //      bullet ↔ bullet
+    name_to_contact: tier(3), // name → contact
     page_bottom: 0,
   ),
-  // Horizontal indent of the bullet marker column (horizontal, so it stays a
-  // type-relative length rather than a fractional weight).
+  // Horizontal type-relative lengths (em, not fractional weights).
   indent: (
-    bullet: 1.1em,
-    // Hanging indent for the "[1]" marker on numbered publications. Wider than
-    // the bullet column because the bracketed number is wider than the dot.
-    cite: 1.7em,
+    bullet: 1.1em, // bullet marker column
+    cite: 1.7em, //  hanging indent for the "[n]" marker — wider, the bracket is wider than the dot
+    date: 1.0em, //  min gap reserved before a right-aligned date on a fitted line
   ),
   color: (
     text: rgb("#1a1a1a"),
@@ -92,8 +95,8 @@
   // Page fill band. `free` is the share of page height left for fr gaps to
   // absorb; below `lo` the page is too cramped, above `hi` it is too airy.
   density: (
-    lo: 0.04,
-    hi: 0.24,
+    lo: 0.05,
+    hi: 0.25,
   ),
   sep: (
     contact: "  |  ",

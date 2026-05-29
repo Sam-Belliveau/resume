@@ -11,7 +11,9 @@
 #import "../theme/config.typ": config
 
 // A single visual line. Inert on its own — `bullet` lays a sequence of them out.
-#let line(body) = (kind: "line", body: body)
+// `expand: false` fits the line shrink-only (squeeze if long, never stretch if
+// short) — for fixed text the author can't pad, e.g. a publication title.
+#let line(body, expand: true) = (kind: "line", body: body, expand: expand)
 
 // A bullet: an optional bold lead-in plus the ordered lines that follow it.
 #let bullet(lead: none, ..lines) = (
@@ -41,18 +43,23 @@
 // each (how many letter gaps and word spaces there are), then split the deficit:
 // `kern_share` goes to letter tracking, the rest to word spacing, so words
 // breathe more than letters. A line with no spaces puts everything into tracking.
-#let _render-line(body, avail) = {
+#let fit-line(body, avail, expand: true) = {
   let natural = measure(body).width
   let gaps = (measure(text(tracking: 1pt, body)).width - natural) / 1pt
   let spaces = (measure(text(spacing: 100% + 1pt, body)).width - natural) / 1pt
+  // `expand: false` only squeezes overlong lines, never stretches short ones.
   let deficit = avail - 0.5pt - natural
+  if not expand { deficit = calc.min(deficit, 0pt) }
 
   let kern = if spaces > 0 { config.fit.kern_share } else { 1.0 }
   let tracking = if gaps > 0 { deficit * kern / gaps } else { 0pt }
   let spacing = if spaces > 0 { deficit * (1.0 - kern) / spaces } else { 0pt }
 
   let fitted = text(tracking: tracking, spacing: 100% + spacing, body)
-  let flag = _flag(natural, avail)
+  // A non-expanding line is meant to be short, so only the overlong (red) flag fires.
+  let flag = if expand { _flag(natural, avail) } else if (
+    config.draft and natural > avail * config.fit.max_fill
+  ) { config.color.dense } else { none }
   if flag == none { fitted } else {
     highlight(fill: flag.transparentize(60%), extent: 0pt, fitted)
   }
@@ -67,7 +74,7 @@
     let last = b.lines.len() - 1
     for (i, ln) in b.lines.enumerate() {
       let body = if i == 0 { _lead(b.lead) + ln.body } else { ln.body }
-      _render-line(body, cell.width)
+      fit-line(body, cell.width, expand: ln.expand)
       if i != last { linebreak() }
     }
   }),

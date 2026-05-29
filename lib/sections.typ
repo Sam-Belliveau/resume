@@ -3,7 +3,7 @@
 // invents a number of its own.
 
 #import "../theme/config.typ": config, fs, gap
-#import "engine.typ": render-bullet
+#import "engine.typ": render-bullet, fit-line
 
 // Section rules carry the page-density signal in draft builds: `resume` measures
 // the page and stores red (too cramped) / amber (too airy) / black (good) here.
@@ -98,13 +98,26 @@
   columns: (config.indent.cite, 1fr), align: top + left, marker, body,
 )
 #let render-publication(p, n) = {
+  // Fixed text the author can't pad to fill the column, so both rows fit shrink-only
+  // (`expand: false`): squeezed to one row if long, left natural if short, never
+  // stretched, and never auto-wrapped.
+  let status = _date(p.status)
   _cite-row(
     text(size: fs("detail"))[#("[" + str(n) + "]")],
-    _row(text(size: fs("detail"))[#p.authors. "#p.title."], _date(p.status)),
+    // Fit the authors/title to the column minus the right-aligned status (plus a
+    // reserved gap); `h(1fr)` then pushes the status flush right.
+    layout(cell => {
+      let head = text(size: fs("detail"))[#p.authors. "#p.title."]
+      let reserve = measure(status).width + measure(box(width: config.indent.date)).width
+      fit-line(head, cell.width - reserve, expand: false)
+      h(1fr)
+      status
+    }),
   )
   if p.role != none or p.contribution != none {
     gap("head_to_sub")
-    _cite-row([], text(size: fs("detail"), fill: config.color.muted)[#p.role#if p.contribution != none [ — #p.contribution]])
+    let detail = text(size: fs("detail"), fill: config.color.muted)[#p.role#if p.contribution != none [ — #p.contribution]]
+    _cite-row([], layout(cell => fit-line(detail, cell.width, expand: false)))
   }
 }
 
@@ -113,15 +126,17 @@
   [#_name[#c.label: ]#c.items.join(config.sep.tech)]
 }
 
-// One honour per line: bold name — italic detail (date). The date is INLINE (not a
-// right-aligned column) so the short, stacked honour rows extract left-to-right;
-// a right-aligned date column here gets pulled to the document end by pdftotext.
+// One honour per line: bold name — italic detail, date flush right. The date is
+// pushed right with an `h(1fr)` spacer INSIDE the same text line rather than placed
+// in a separate grid column — so it reads flush-right on the page yet stays adjacent
+// to its award in the content stream, and `pdftotext` extracts it in order (a
+// right-aligned grid column gets batched and dumped at the document end instead).
 #let render-awards(a) = for (i, it) in a.items.enumerate() {
-  if i > 0 { gap("bullet_gap") }
+  if i > 0 { gap("entry_gap") }
   let row = _name(it.name)
   if it.detail != none { row += [ — #_role(it.detail)] }
-  if it.date != none { row += [ #_date[(#it.date)]] }
-  row
+  if it.date != none { row += [#h(1fr)#_date(it.date)] }
+  block(width: 100%, row)
 }
 
 // --- section assembly ----------------------------------------------------------
