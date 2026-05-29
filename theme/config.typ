@@ -60,6 +60,9 @@
   // type-relative length rather than a fractional weight).
   indent: (
     bullet: 1.1em,
+    // Hanging indent for the "[1]" marker on numbered publications. Wider than
+    // the bullet column because the bracketed number is wider than the dot.
+    cite: 1.7em,
   ),
   color: (
     text: rgb("#1a1a1a"),

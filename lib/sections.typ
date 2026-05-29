@@ -72,23 +72,40 @@
 }
 
 #let render-project(p) = {
-  let heading = _name(p.title)
+  // A `link` makes the title clickable; since the link colour equals the text
+  // colour, the printed page is unchanged — the URL just rides in the annotation.
+  let title = if p.link != none { link(p.link, p.title) } else { p.title }
+  let head = _name(title)
   if p.tech.len() > 0 {
-    heading += config.sep.title_tech + _role(p.tech.join(config.sep.tech))
+    head += config.sep.title_tech + _role(p.tech.join(config.sep.tech))
   }
-  _row(heading, if p.dates != none { _date(p.dates) })
+  _row(head, if p.dates != none { _date(p.dates) })
   gap("sub_to_bullets")
   _bullets(p.bullets)
 }
 
-#let render-publication(p) = {
-  _row(_name(p.title), _date(p.status))
-  gap("head_to_sub")
-  _role(p.authors)
-  gap("head_to_sub")
-  text(size: fs("detail"))[
-    #_name[Contribution:] #p.role#if p.contribution != none [. #p.contribution]
-  ]
+// A numbered citation with a hanging indent under the "[n]" marker:
+//   [1] Authors. "Title."                              Venue — Status
+//       Role — contribution.
+// `authors` is content with the candidate's name bolded inline; the title is
+// smart-quoted; status is right-aligned like every other date in the resume.
+//
+// The two lines are emitted at the TOP LEVEL (separated by a normal `gap`, which is
+// a page-distributed `v(1fr)`); each line is a `cite, 1fr` grid only for the hanging
+// indent. A `gap` must never live inside a grid cell — there its fr is resolved
+// against the cell, not the page, and balloons to swallow the layout.
+#let _cite-row(marker, body) = grid(
+  columns: (config.indent.cite, 1fr), align: top + left, marker, body,
+)
+#let render-publication(p, n) = {
+  _cite-row(
+    text(size: fs("detail"))[#("[" + str(n) + "]")],
+    _row(text(size: fs("detail"))[#p.authors. "#p.title."], _date(p.status)),
+  )
+  if p.role != none or p.contribution != none {
+    gap("head_to_sub")
+    _cite-row([], text(size: fs("detail"), fill: config.color.muted)[#p.role#if p.contribution != none [ — #p.contribution]])
+  }
 }
 
 #let render-skills(s) = for (i, c) in s.categories.enumerate() {
@@ -96,11 +113,26 @@
   [#_name[#c.label: ]#c.items.join(config.sep.tech)]
 }
 
+// One honour per line: bold name — italic detail (date). The date is INLINE (not a
+// right-aligned column) so the short, stacked honour rows extract left-to-right;
+// a right-aligned date column here gets pulled to the document end by pdftotext.
+#let render-awards(a) = for (i, it) in a.items.enumerate() {
+  if i > 0 { gap("bullet_gap") }
+  let row = _name(it.name)
+  if it.detail != none { row += [ — #_role(it.detail)] }
+  if it.date != none { row += [ #_date[(#it.date)]] }
+  row
+}
+
 // --- section assembly ----------------------------------------------------------
 
 #let _section(title, body) = {
   gap("section_before")
-  text(size: fs("section"), weight: config.weight.strong, smallcaps(title))
+  // A real `heading` (not styled `text`) so the tagged PDF carries a logical
+  // structure tree — H1 sections — for ATS / accessibility consumers. The
+  // `show heading` rule in resume.typ restyles it to the section look (smallcaps,
+  // section size, bold); the surrounding gaps own all spacing so it stays thin.
+  heading(level: 1, outlined: false)[#title]
   gap("section_rule")
   _rule()
   gap("section_after")
@@ -112,11 +144,18 @@
   render(it)
 }
 
+// Like `_entries`, but hands each renderer its 1-based index (for "[n]" citations).
+#let _numbered-entries(items, render) = for (i, it) in items.enumerate() {
+  if i > 0 { gap("entry_gap") }
+  render(it, i + 1)
+}
+
 #let education_section(title: "Education", ..e) = _section(title, _entries(e.pos(), render-education))
 #let experience_section(title: "Experience", ..e) = _section(title, _entries(e.pos(), render-experience))
 #let project_section(title: "Projects", ..e) = _section(title, _entries(e.pos(), render-project))
-#let publication_section(title: "Publications", ..e) = _section(title, _entries(e.pos(), render-publication))
+#let publication_section(title: "Publications", ..e) = _section(title, _numbered-entries(e.pos(), render-publication))
 #let skills_section(s, title: "Skills") = _section(title, render-skills(s))
+#let awards_section(a, title: "Honors & Awards") = _section(title, render-awards(a))
 
 // --- header --------------------------------------------------------------------
 

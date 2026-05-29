@@ -37,13 +37,17 @@
 }
 
 // Header line is "title | tech, tech, ..." on the left, dates on the right.
-#let project(title: none, tech: (), dates: none, bullets: ()) = {
+// `link` (if given) turns the title into a clickable hyperlink to the repo.
+#let project(title: none, tech: (), dates: none, link: none, bullets: ()) = {
   _need(title != none, "project needs a title")
   _need(bullets.len() > 0, "project needs at least one bullet")
-  (kind: "project", title: title, tech: tech, dates: dates, bullets: bullets)
+  (kind: "project", title: title, tech: tech, dates: dates, link: link,
+   bullets: bullets)
 }
 
-// Title / venue-status, then authors, then a "Contribution: role. detail" line.
+// A numbered citation: "[n] authors. \"title.\"" with venue-status on the right,
+// then an optional "role — contribution" detail line. `authors` is content, so the
+// candidate's own name can be bolded inline (e.g. `[*S. Belliveau*, A. Davis]`).
 #let publication(
   title: none, status: none, authors: none, role: none, contribution: none,
 ) = {
@@ -53,6 +57,18 @@
   _need(role != none, "publication needs a role")
   (kind: "publication", title: title, status: status, authors: authors,
    role: role, contribution: contribution)
+}
+
+// One honour/award: bold `name`, optional italic `detail`, optional right-aligned
+// `date`. Grouped by `awards(...)` like skill categories.
+#let award(name, detail: none, date: none) = (
+  name: name, detail: detail, date: date,
+)
+
+#let awards(..items) = {
+  let xs = items.pos()
+  _need(xs.len() > 0, "awards needs at least one item")
+  (kind: "awards", items: xs)
 }
 
 // One labelled row of comma-separated items, e.g. category("Languages", "C", …).

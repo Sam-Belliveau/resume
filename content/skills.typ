@@ -17,3 +17,10 @@
     "Git", "Linux", "Docker", "VS Code", "ROS", "Cassandra",
     "BigQuery", "NumPy", "SciPy", "PyTorch"),
 )
+
+#let research = skills(
+  _languages,
+  category("ML & Vision", "PyTorch", "NumPy", "SciPy", "Apple Vision", "GenAI"),
+  category("Systems & Embedded", "CUDA", "ROS", "RP2040 / DMA", "HLS / FPGA"),
+  category("Graphics & Tools", "GLSL", "OpenGL", "SFML", "Git", "Linux", "Docker"),
+)
