@@ -1,0 +1,40 @@
+name: Release Résumé
+
+# Cut a dated release with the latest résumé PDFs on every push to main.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: "0.14.2"
+
+      - name: Compile all variants
+        run: |
+          mkdir -p dist
+          for v in swe robotics research; do
+            typst compile --root . --font-path fonts \
+              --input draft=false --pdf-standard a-2b \
+              variants/$v.typ dist/Sam-Belliveau-$v.pdf
+          done
+
+      - name: Date stamp
+        id: stamp
+        run: echo "date=$(date -u +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          # run_number keeps the tag unique across multiple commits in one day.
+          tag_name: resume-${{ steps.stamp.outputs.date }}-${{ github.run_number }}
+          name: Résumé — ${{ steps.stamp.outputs.date }}
+          body: |
+            Automated résumé build from commit ${{ github.sha }} (${{ steps.stamp.outputs.date }}).
+          files: dist/*.pdf

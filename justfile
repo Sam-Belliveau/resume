@@ -8,25 +8,25 @@ default:
     @just --list
 
 # Live-reload a variant's draft (colour-coded fit feedback). e.g. `just watch robotics`
-watch variant="swe":
+watch variant:
     typst watch --root . --font-path {{fontdir}} --input draft=true \
         variants/{{variant}}.typ out/{{variant}}-draft.pdf
 
-# Render a variant's draft to PNG, for visual line tuning. e.g. `just png swe 150`
-png variant="swe" ppi="150":
+# Render a variant's draft to PNG, for visual line tuning. e.g. `just png swe` or `just png swe 150`
+png variant ppi="300":
     typst compile --root . --font-path {{fontdir}} --input draft=true --ppi {{ppi}} \
         variants/{{variant}}.typ out/{{variant}}-draft.png
 
 # Build one variant's final (clean) PDF. `--pdf-standard a-2b` emits a tagged,
 # archival PDF/A-2b (good logical structure for ATS / accessibility); Typst tags
 # by default, this just validates and pins the standard.
-build variant="swe":
+build variant:
     typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2b \
         variants/{{variant}}.typ out/Sam-Belliveau-{{variant}}.pdf
 
 # Extract a plain-text (ATS / copy-paste) companion of a variant from its final PDF.
 # Requires poppler's `pdftotext`. e.g. `just txt research`
-txt variant="swe": (build variant)
+txt variant: (build variant)
     pdftotext -nopgbrk out/Sam-Belliveau-{{variant}}.pdf out/Sam-Belliveau-{{variant}}.txt
 
 # Build every variant's final PDF (+ .txt if pdftotext is present) into out/.
