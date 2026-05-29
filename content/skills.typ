@@ -19,8 +19,12 @@
 )
 
 #let research = skills(
-  _languages,
-  category("ML & Vision", "PyTorch", "NumPy", "SciPy", "Apple Vision", "GenAI"),
-  category("Systems & Embedded", "CUDA", "ROS", "RP2040 / DMA", "HLS / FPGA"),
-  category("Graphics & Tools", "GLSL", "OpenGL", "SFML", "Git", "Linux", "Docker"),
+  category("Languages",
+    "C++", "Rust", "Python", "Swift", "Java", "C", "C#", "Go", "JavaScript"),
+  category("ML & Perception",
+    "PyTorch", "NumPy", "SciPy", "Apple Vision", "Computer Vision", "Signal Processing"),
+  category("Graphics & GPU",
+    "GLSL", "OpenGL", "CUDA", "SFML", "Real-Time Rendering"),
+  category("Systems & Embedded",
+    "ROS", "HLS / FPGA", "Verilog HDL", "RP2040 / DMA", "Linux", "Docker", "Git"),
 )
