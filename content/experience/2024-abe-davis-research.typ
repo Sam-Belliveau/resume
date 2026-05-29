@@ -4,7 +4,7 @@
   organization: "Cornell University — Prof. Abe Davis Lab",
   title: "Undergraduate Researcher",
   location: "Ithaca, NY",
-  dates: "June 2023 — Present",
+  dates: "06/2023 — Present",
   bullets: (
     bullet(lead: "CaptureGraph (System Architect)",
       line[Built a DSL that serializes experimental procedures into a reusable graph data model;],

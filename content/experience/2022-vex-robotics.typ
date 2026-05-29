@@ -4,7 +4,7 @@
   organization: "PLAYIDEAs NY",
   title: "VEX Robotics Coach / Mentor",
   location: "Great Neck & Manhattan, NY",
-  dates: "Oct 2022 — May 2023",
+  dates: "10/2022 — 05/2023",
   bullets: (
     bullet(
       line[Coached three local VEX robotics teams of six to eight students in the fundamentals of robotics and programming.],

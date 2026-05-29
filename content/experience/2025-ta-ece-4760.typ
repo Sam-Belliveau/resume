@@ -4,7 +4,7 @@
   organization: "Cornell University",
   title: "Teaching Assistant — ECE 4760: Microcontrollers",
   location: "Ithaca, NY",
-  dates: "Jan 2025 — Present",
+  dates: "01/2025 — Present",
   bullets: (
     bullet(
       line[Graded weekly laboratory assignments and gave students detailed feedback on their report quality and source code.],

@@ -3,7 +3,7 @@
 #let entry = project(
   title: "SmolVLA: FPGA Accelerator for Vision-Language-Action Models",
   tech: ("High-Level Synthesis", "C++ / Python"),
-  dates: "Fall 2025",
+  dates: "08/2025 — 12/2025",
   bullets: (
     bullet(
       line[Designed a spatial dataflow architecture on a Xilinx Alveo U280 FPGA to accelerate the vision encoder of the SmolVLA model.],

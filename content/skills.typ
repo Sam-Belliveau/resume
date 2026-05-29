@@ -20,7 +20,7 @@
 
 #let research = skills(
   category("Languages",
-    "C++", "Rust", "Python", "Swift", "Java", "C", "C#", "Go", "JavaScript"),
+    [#emph[Proficient] — C++, Python, Swift, Rust#h(1em)#emph[Familiar] — C, C\#, Go, Java, JavaScript]),
   category("ML & Perception",
     "PyTorch", "NumPy", "SciPy", "Apple Vision", "Computer Vision", "Signal Processing"),
   category("Graphics & GPU",
