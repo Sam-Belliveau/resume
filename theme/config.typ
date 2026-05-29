@@ -22,7 +22,7 @@
   draft: draft,
   page: (
     paper: "us-letter",
-    margin: (x: 7%, y: 6%),
+    margin: (x: 0.5in, y: 0.5in),
   ),
   font: (
     family: "Source Sans 3",

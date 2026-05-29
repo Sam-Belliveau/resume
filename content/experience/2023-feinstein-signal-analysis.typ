@@ -10,7 +10,7 @@
       line[Engineered an automated Sharp-Wave-Ripple detection pipeline in Python and SciPy to process large EEG datasets.],
     ),
     bullet(
-      line[Analyzed ripple characteristics to refine the detection algorithms and directly improve seizure-prediction models.],
+      line[Analyzed ripple characteristics to refine the detection algorithms and directly improve the lab's seizure-prediction models.],
     ),
   ),
 )

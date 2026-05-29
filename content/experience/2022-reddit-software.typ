@@ -7,7 +7,7 @@
   dates: "July 2022 — Sept 2022",
   bullets: (
     bullet(
-      line[Collaborated with the Taxonomy Group to classify and ensure the safety of more than 138,000 active subreddits.],
+      line[Collaborated with the Taxonomy Group to classify and ensure the safety of more than 138,000 of the most active subreddits.],
     ),
     bullet(
       line[Designed and built a synthetic data generation script to rigorously validate the accuracy of the classification models.],

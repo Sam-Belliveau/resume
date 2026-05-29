@@ -10,10 +10,10 @@
       line[Graded weekly laboratory assignments and gave students detailed feedback on their report quality and source code.],
     ),
     bullet(
-      line[Assisted student groups during lab sessions with debugging hardware and software and completing experiments.],
+      line[Assisted student groups during lab sessions with debugging their hardware and software and completing experiments.],
     ),
     bullet(
-      line[Documented pin configurations and hardware specifications for lab equipment to improve the student workflow.],
+      line[Documented pin configurations and hardware specifications for the lab equipment to streamline the overall student workflow.],
     ),
   ),
 )

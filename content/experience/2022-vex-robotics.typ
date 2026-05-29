@@ -7,7 +7,7 @@
   dates: "10/2022 — 05/2023",
   bullets: (
     bullet(
-      line[Coached three local VEX robotics teams of six to eight students in the fundamentals of robotics and programming.],
+      line[Coached three local VEX robotics teams of six to eight students in the fundamentals of competitive robotics and programming.],
     ),
     bullet(
       line[Developed structured lesson plans introducing students to PID control, odometry, and basic digital filtering techniques.],

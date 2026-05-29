@@ -15,7 +15,7 @@
 #let cornell-courses = (..cornell, bullets: (
   bullet(lead: "Relevant Coursework",
     line[Computer Science I–III, Discrete Structures, Digital Logic & Computer Organization, Linear Algebra,],
-    line[Differential Equations, Signals & Systems, Physics: Mechanics, EM Fields & Waves, and Data Science for Engineers.],
+    line[Differential Equations, Signals & Systems, Embedded Systems, Microcontrollers, Fast Robots, Optimal Control, and Data Science.],
   ),
 ))
 

@@ -7,7 +7,7 @@
   link: "https://github.com/Sam-Belliveau/flying-dutchman",
   bullets: (
     bullet(
-      line[Built a high-performance UCI-compliant chess engine in Rust reaching an estimated 2700 Elo (grandmaster level).],
+      line[Built a high-performance, UCI-compliant chess engine in Rust reaching an estimated 2700 Elo rating (grandmaster level).],
     ),
     bullet(
       line[Optimized search efficiency with alpha-beta pruning and iterative deepening to significantly boost engine strength.],

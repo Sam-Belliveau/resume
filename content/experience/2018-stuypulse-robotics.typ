@@ -10,7 +10,7 @@
       line[Led and taught a 50-member software team writing the controls for a 120 lb robot competing in FRC Championships.],
     ),
     bullet(
-      line[Implemented, taught, and documented PID control, odometry, digital filtering, and motion profiling for the team.],
+      line[Implemented, taught, and documented PID control, odometry, digital filtering, and motion profiling for the whole team.],
     ),
     bullet(
       line[Communicated the software design to competition judges and won four Innovation in Control Awards across seasons.],
