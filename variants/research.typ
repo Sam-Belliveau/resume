@@ -15,7 +15,11 @@
 #import "../content/projects/2025-sound-localization.typ": entry as sound-localization
 #import "../content/projects/2025-smolvla.typ": entry as smolvla
 
-#show: resume.with(header: header)
+#show: resume.with(
+  header: header,
+  description: "Research résumé (computer graphics & vision) — Sam Belliveau",
+  keywords: ("Resume", "PhD Student", "Cornell"),
+)
 
 // Standard research-résumé order, tuned to fill exactly one page. To trim first
 // drop the SmolVLA project, then the VEX teaching entry, then Hofstra.

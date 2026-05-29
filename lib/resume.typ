@@ -4,9 +4,17 @@
 #import "../theme/config.typ": config, fs, gap
 #import "sections.typ": render-header, set-density
 
-#let resume(header: none, body) = {
+#let resume(header: none, description: none, keywords: (), body) = {
   set document(
     title: if header != none { header.name + " — Resume" } else { "Resume" },
+    // Author is part of the accessible PDF metadata (read out by assistive tech and
+    // shown in document properties), so populate it from the header name.
+    author: if header != none { header.name } else { () },
+    // `description` (→ PDF /Subject) and `keywords` (→ /Keywords) are variant-specific
+    // and set per variant; defaulting to none/() leaves them unset. `date` is left at
+    // its `auto` default (build date) on purpose.
+    description: description,
+    keywords: keywords,
   )
   set page(paper: config.page.paper, margin: config.page.margin)
   set text(
@@ -18,12 +26,21 @@
   )
   set par(leading: config.leading)
   show link: set text(fill: config.color.link)
-  // Section titles are emitted as real headings (see _section); restyle them to the
-  // section look here. Returning bare `text` drops the heading's default block
-  // spacing, so the layout is identical to the former styled-text titles while the
-  // tagged PDF gains a proper H1 structure tree.
-  show heading: it => text(
+  // The résumé carries a three-level heading hierarchy so the tagged PDF exposes a
+  // real navigable outline (H1 name → H2 sections → H3 entry titles) to ATS and
+  // assistive tech. Each level is emitted as a genuine `heading` (the name in
+  // `render-header`, sections in `_section`, entry titles via `_entry-title`) and
+  // restyled here. Returning bare `text` drops the heading's default block spacing,
+  // so every level lays out identically to the former styled-text it replaced — the
+  // surrounding gaps still own all spacing.
+  show heading.where(level: 1): it => text(
+    size: fs("name"), weight: config.weight.strong, it.body,
+  )
+  show heading.where(level: 2): it => text(
     size: fs("section"), weight: config.weight.strong, smallcaps(it.body),
+  )
+  show heading.where(level: 3): it => text(
+    weight: config.weight.strong, it.body,
   )
 
   // Draft builds colour the section rules by how full the page is.

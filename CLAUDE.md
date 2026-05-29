@@ -71,8 +71,16 @@ deliberate forcing function — **fix the content, never widen the band to make 
 - **`gap()` must never live inside a grid cell** — its `1fr` would resolve against the
   cell, not the page, and balloon. Numbered publications emit their two rows at the
   top level and use grids only for the hanging `[n]` indent (see `render-publication`).
-- **Headings are real `heading(level: 1)` elements** (restyled by a show rule in
-  `resume.typ`), so the PDF carries a logical structure tree for ATS / accessibility.
+- **Headings are real `heading` elements** in a three-level hierarchy (restyled by
+  level-aware show rules in `resume.typ`): the name is **H1** (`render-header`),
+  section titles are **H2** (`_section`), and each entry's title is **H3**
+  (`_entry-title`, used by the education/experience/project renderers). So the PDF
+  carries a navigable logical structure tree (`just build` certifies **PDF/A-2a**,
+  the accessible conformance level — validated clean by veraPDF). Decorative bits
+  (the section underline `_rule()`) are wrapped in `pdf.artifact(...)` so assistive
+  tech skips them. Note: bullets render as `P` (paragraphs), not a tagged list —
+  Typst 0.14 exposes no manual list-tag primitive and the line engine precludes real
+  `list` elements, so true `L`/`LI` tagging is the one accessibility ceiling here.
 - **Awards dates are flush-right via an `h(1fr)` spacer *inside* the text line**, not
   a separate grid column — so the date stays adjacent to its award in the content
   stream and extracts in order. Award rows are separated by `entry_gap` (not

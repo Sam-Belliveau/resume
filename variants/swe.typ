@@ -11,7 +11,11 @@
 #import "../content/projects/2022-dolphin-emu.typ": entry as dolphin
 #import "../content/projects/2021-gameboy-emulator.typ": entry as gameboy
 
-#show: resume.with(header: header)
+#show: resume.with(
+  header: header,
+  description: "Software engineering résumé — Sam Belliveau",
+  keywords: ("Resume", "Software Engineer", "Cornell"),
+)
 
 #education_section(cornell)
 #skills_section(skills)

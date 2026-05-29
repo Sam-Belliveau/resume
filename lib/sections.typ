@@ -21,6 +21,12 @@
 // --- small typographic helpers -------------------------------------------------
 
 #let _name(body) = text(weight: config.weight.strong, body)
+// An entry's title (school / organization / project) as a real level-3 heading, so
+// it becomes an H3 node under its section's H2 in the tagged structure tree. The
+// `show heading.where(level: 3)` rule in resume.typ restyles it to look exactly like
+// `_name` (bold, inline), so the layout is unchanged. `outlined: false` keeps it out
+// of the PDF bookmark outline (matching sections); only the structure tree gains it.
+#let _entry-title(body) = heading(level: 3, outlined: false)[#body]
 #let _loc(body) = text(size: fs("detail"), fill: config.color.muted, body)
 #let _role(body) = text(size: fs("detail"), style: "italic", body)
 #let _date(body) = text(
@@ -31,9 +37,12 @@
   columns: (1fr, auto), align: (left, right), left-body, right-body,
 )
 
-#let _rule() = context line(
+// The section underline is purely decorative, so mark it a PDF artifact: it is then
+// excluded from the logical structure tree and assistive tech skips it instead of
+// announcing a stray rule between the heading and its content.
+#let _rule() = pdf.artifact(context line(
   length: 100%, stroke: config.rule.stroke + rule-color.get(),
-)
+))
 
 // Render a list of bullets with proportional gaps between them.
 #let _bullets(items) = for (i, b) in items.enumerate() {
@@ -52,7 +61,7 @@
 // --- per-entry renderers -------------------------------------------------------
 
 #let render-education(e) = {
-  _row(_name(e.school), _loc(e.location))
+  _row(_entry-title(e.school), _loc(e.location))
   gap("head_to_sub")
   _row(_role(e.degree), _date(e.dates))
   if e.gpa != none or e.bullets.len() > 0 { gap("sub_to_bullets") }
@@ -64,7 +73,7 @@
 }
 
 #let render-experience(e) = {
-  _row(_name(e.organization), _loc(e.location))
+  _row(_entry-title(e.organization), _loc(e.location))
   gap("head_to_sub")
   _row(_role(e.title), _date(e.dates))
   gap("sub_to_bullets")
@@ -75,7 +84,7 @@
   // A `link` makes the title clickable; since the link colour equals the text
   // colour, the printed page is unchanged — the URL just rides in the annotation.
   let title = if p.link != none { link(p.link, p.title) } else { p.title }
-  let head = _name(title)
+  let head = _entry-title(title)
   if p.tech.len() > 0 {
     head += config.sep.title_tech + _role(p.tech.join(config.sep.tech))
   }
@@ -144,10 +153,11 @@
 #let _section(title, body) = {
   gap("section_before")
   // A real `heading` (not styled `text`) so the tagged PDF carries a logical
-  // structure tree — H1 sections — for ATS / accessibility consumers. The
-  // `show heading` rule in resume.typ restyles it to the section look (smallcaps,
-  // section size, bold); the surrounding gaps own all spacing so it stays thin.
-  heading(level: 1, outlined: false)[#title]
+  // structure tree — sections are H2, under the H1 name and above each entry's H3.
+  // The `show heading.where(level: 2)` rule in resume.typ restyles it to the section
+  // look (smallcaps, section size, bold); the surrounding gaps own all spacing so it
+  // stays thin.
+  heading(level: 2, outlined: false)[#title]
   gap("section_rule")
   _rule()
   gap("section_after")
@@ -178,7 +188,10 @@
 
 #let render-header(h) = {
   set align(center)
-  text(size: fs("name"), weight: config.weight.strong, h.name)
+  // The name is the document's H1 — the root of the heading outline. The
+  // `show heading.where(level: 1)` rule in resume.typ restyles it to the former
+  // name look (name size, bold), so the centred header is visually unchanged.
+  heading(level: 1, outlined: false)[#h.name]
   gap("name_to_contact")
   let parts = ()
   if h.phone != none { parts.push(h.phone) }

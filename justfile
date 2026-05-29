@@ -17,11 +17,12 @@ png variant ppi="300":
     typst compile --root . --font-path {{fontdir}} --input draft=true --ppi {{ppi}} \
         variants/{{variant}}.typ out/{{variant}}-draft.png
 
-# Build one variant's final (clean) PDF. `--pdf-standard a-2b` emits a tagged,
-# archival PDF/A-2b (good logical structure for ATS / accessibility); Typst tags
-# by default, this just validates and pins the standard.
+# Build one variant's final (clean) PDF. `--pdf-standard a-2a` emits a tagged,
+# archival PDF/A-2a — the accessible conformance level: it validates the logical
+# structure tree (from the real heading() elements) and document language, not just
+# visual fidelity. Typst tags by default; this pins and certifies the standard.
 build variant:
-    typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2b \
+    typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2a \
         variants/{{variant}}.typ out/Sam-Belliveau-{{variant}}.pdf
 
 # Extract a plain-text (ATS / copy-paste) companion of a variant from its final PDF.
@@ -35,7 +36,7 @@ all:
     set -euo pipefail
     mkdir -p out
     for v in {{variants}}; do
-        typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2b \
+        typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2a \
             variants/$v.typ out/Sam-Belliveau-$v.pdf
         if command -v pdftotext >/dev/null 2>&1; then
             pdftotext -nopgbrk out/Sam-Belliveau-$v.pdf out/Sam-Belliveau-$v.txt

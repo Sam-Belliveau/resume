@@ -19,7 +19,11 @@
   ),
 ))
 
-#show: resume.with(header: header)
+#show: resume.with(
+  header: header,
+  description: "Robotics & embedded systems résumé — Sam Belliveau",
+  keywords: ("Resume", "Robotics Engineer", "Cornell"),
+)
 
 #education_section(cornell-courses)
 #skills_section(skills)
