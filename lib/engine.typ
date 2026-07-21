@@ -22,19 +22,24 @@
   lines: lines.pos(),
 )
 
-// Draft-only highlight colour, or none. Wider than the column → squeezed (too
-// long); narrower than `min_fill` → stretched (too short). A highlight is a
-// background that leaves the black text readable and never shifts it, so the
-// draft and final layouts stay identical down to the pixel.
-#let _flag(natural, avail) = {
-  if not config.draft { return none }
-  if natural > avail * config.fit.max_fill { config.color.dense }
-  else if natural < avail * config.fit.min_fill { config.color.sparse }
-  else { none }
-}
-
 #let _lead(lead) = if lead == none { none } else {
   text(weight: config.weight.emphasis)[#lead: ]
+}
+
+// Recover a line's plain text from its content tree, so the fit report can
+// identify each line without rendering an image.
+#let _plain(it) = {
+  if type(it) == str { it } else if type(it) != content { repr(it) } else {
+    let f = it.fields()
+    if "text" in f { f.text } else if "children" in f {
+      let s = f.children.map(_plain).join("")
+      if s == none { "" } else { s }
+    } else if "child" in f { _plain(f.child) } else if "body" in f {
+      _plain(f.body)
+    } else if it.func() == linebreak { " " } else if it.func() == smartquote {
+      if f.at("double", default: true) { "\"" } else { "'" }
+    } else if repr(it.func()) == "space" { " " } else { "" }
+  }
 }
 
 // Fit the line to the column by adjusting word spacing and letter tracking
@@ -56,10 +61,23 @@
   let spacing = if spaces > 0 { deficit * (1.0 - kern) / spaces } else { 0pt }
 
   let fitted = text(tracking: tracking, spacing: 100% + spacing, body)
-  // A non-expanding line is meant to be short, so only the overlong (red) flag fires.
-  let flag = if expand { _flag(natural, avail) } else if (
-    config.draft and natural > avail * config.fit.max_fill
-  ) { config.color.dense } else { none }
+  if not config.draft { return fitted }
+
+  // Draft-only fit signal. "long" = squeezed (rewrite shorter); "short" =
+  // stretched past `min_fill` (add more) — a non-expanding line is meant to be
+  // short, so only "long" fires for it. The same status drives the translucent
+  // highlight (a background that never shifts the text, so draft and final
+  // geometry match to the pixel) and a queryable <fit> record for `just fit`.
+  let status = if natural > avail * config.fit.max_fill { "long" } else if (
+    expand and natural < avail * config.fit.min_fill
+  ) { "short" } else { "ok" }
+  [#metadata((
+    kind: "line",
+    status: status,
+    fill: calc.round(natural / avail, digits: 3),
+    text: _plain(body),
+  )) <fit>]
+  let flag = (long: config.color.dense, short: config.color.sparse).at(status, default: none)
   if flag == none { fitted } else {
     highlight(fill: flag.transparentize(60%), extent: 0pt, fitted)
   }

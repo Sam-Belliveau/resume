@@ -19,7 +19,7 @@ command passes `--font-path fonts`.
 
 ## Layout
 
-```
+```text
 theme/config.typ     One source of truth — every size, gap, colour, threshold.
 lib/                 The template engine (formatting + data structures).
   schema.typ         Entry constructors + validation. No styling.
@@ -63,6 +63,9 @@ is the highlights. Tune the band in `theme/config.typ` (`fit.min_fill`,
 `fit.max_fill`, `fit.kern_share`).
 
 To tune visually, render a PNG and open it: `just png swe` → `out/swe-draft.png`.
+For a machine-readable version of the same feedback, `just fit swe` prints an XML
+report with every line's fill ratio and the resolved size of every vertical gap —
+handy for LLM-driven tuning, no image required.
 
 ## Adding content
 

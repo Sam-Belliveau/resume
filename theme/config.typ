@@ -92,11 +92,13 @@
     // breathe more than letters, like proper justification.
     kern_share: 0.25,
   ),
-  // Page fill band. `free` is the share of page height left for fr gaps to
-  // absorb; below `lo` the page is too cramped, above `hi` it is too airy.
+  // Page fill band. `free` is the share of the usable page height the fr gaps
+  // actually absorbed (measured by the gap probes — see `set-density`); below
+  // `lo` the gaps are squeezed thin (cramped: cut content), above `hi` they gape
+  // (airy: add content). Calibrated so a well-tuned page (~0.45–0.65) reads ok.
   density: (
-    lo: 0.05,
-    hi: 0.25,
+    lo: 0.35,
+    hi: 0.70,
   ),
   sep: (
     contact: "  |  ",
@@ -109,5 +111,13 @@
 // Resolve a scale key to an absolute text size.
 #let fs(key) = config.scale.at(key) * config.font.size
 
-// Emit a vertical gap by its fractional weight.
-#let gap(key) = v(config.space.at(key) * 1fr)
+// Emit a vertical gap by its fractional weight. Draft builds bracket the gap
+// with zero-size position probes, so the fit report can state the resolved size
+// of every gap (`set-density` pairs the probes up in document order).
+#let gap(key) = {
+  let sp = v(config.space.at(key) * 1fr)
+  if not draft { return sp }
+  place(context [#metadata((key: key, weight: config.space.at(key), y: here().position().y.pt())) <gap-s>])
+  sp
+  place(context [#metadata((y: here().position().y.pt())) <gap-e>])
+}

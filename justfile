@@ -17,6 +17,12 @@ png variant ppi="300":
     typst compile --root . --font-path {{fontdir}} --input draft=true --ppi {{ppi}} \
         variants/{{variant}}.typ out/{{variant}}-draft.png
 
+# Machine-readable fit report: every line's fill ratio + the page density, as XML.
+# The text-based alternative to reading the draft PNG. e.g. `just fit swe`
+fit variant:
+    @typst query --root . --font-path {{fontdir}} --input draft=true \
+        variants/{{variant}}.typ "<fit>" --field value | python3 scripts/fit-report.py {{variant}}
+
 # Build one variant's final (clean) PDF. `--pdf-standard a-2a` emits a tagged,
 # archival PDF/A-2a — the accessible conformance level: it validates the logical
 # structure tree (from the real heading() elements) and document language, not just

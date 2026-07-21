@@ -1,64 +1,53 @@
 ---
 name: resume
-description: Author and tune this Typst résumé. Use to create a new résumé variant, add or edit an experience / project / publication / education entry, or fit a résumé to exactly one page by rewriting bullet lines until the draft's colour-coded fit feedback clears.
+description: Author and tune this Typst résumé. Use to create a new résumé variant, add or edit an experience / project / publication / education entry, or fit a résumé to exactly one page by rewriting bullet lines until the fit report clears.
 ---
 
 # Authoring this résumé
 
-This repo builds several one-page résumé **variants** from shared **entries**.
-Read `README.md` for the full layout; the essentials:
-
-- `theme/config.typ` — the only place with literal numbers (sizes, gaps, colours,
-  the fit thresholds). Never hard-code a value elsewhere; change it here.
-- `content/<type>/<year>-<slug>.typ` — one entry per file, data only.
-- `variants/<name>.typ` — selects which entries appear and in what order.
-
-## The line model
-
-Bullets are written as explicit visual lines, not wrapping prose. Each `line[...]`
-is fitted to one row by adjusting tracking and **never wraps**. Write bullets with
-the `bullet` / `line` primitives, and put a bold lead-in in `lead:`, never as inline
-markup:
+This is a writing task, not an engineering one. Entries live in `content/` (one
+file each, data only); variants in `variants/` pick and order them. Bullets are
+explicit visual lines — each `line[...]` renders on exactly one row and never
+wraps — so your job is to write lines that naturally fill their row.
 
 ```typ
 bullet(lead: "Project Name", line[First full line of the bullet.], line[Second full line.])
 bullet(line[A single full line.])
 ```
 
-Facts are sacred: keep every organization, title, date, technology, and metric.
-Only rephrase wording and where the line breaks fall.
+Bold lead-ins go in `lead:`, never as inline markup.
+
+**Facts are sacred**: keep every organization, title, date, technology, and
+metric exactly as written. Only rephrase wording and where the line breaks fall.
+
+## Fit to one page — the core loop
+
+1. `just fit <variant>` — prints an XML report: each line's `status`
+   (`ok`/`short`/`long`) and fill ratio, the page `status` (`ok`/`airy`/`cramped`),
+   and a `<spacing>` section with each vertical gap's resolved size in em (big
+   gaps = the page has room for more content).
+2. Rewrite flagged lines in `content/**`:
+   - **short** (stretched to fill) → add words or pull a clause up from the next line.
+   - **long** (squeezed) → tighten wording or move a clause to the next line.
+   - Page **airy** → add a bullet or entry; **cramped** → cut one.
+3. Repeat until nothing is flagged. `just build <variant>` makes the final PDF.
+
+`just png <variant>` renders the same feedback visually (blue = short, red =
+long) if you want to see the page. Never widen the fit band in
+`theme/config.typ` to make a line pass — rewrite the line.
+
+For heavy tuning, delegate to the `resume-tuner` subagent with the variant name.
 
 ## Add an entry
 
-Create `content/<type>/<year>-<slug>.typ`, import from `../../lib/lib.typ`, and bind
-one `entry` using the matching constructor (`experience`, `project`, `publication`,
-`education`, or for the header/skills the singletons). Then add it to whichever
-variant should show it.
+Create `content/<type>/<year>-<slug>.typ`, import from `../../lib/lib.typ`, bind
+one `entry` with the matching constructor (`experience`, `project`,
+`publication`, `education`, `awards`), and add it to a variant. Copy a
+neighbouring file as the template — constructors assert on missing fields.
 
 ## Add a variant
 
-Copy an existing `variants/*.typ`, change the imports to the entries you want, and
-list the `*_section(...)` calls in display order. `*_section` takes an optional
-`title:` to rename a section (e.g. "Research Experience").
-
-## Fit to one page — the visual loop
-
-This is the core workflow. The page auto-fills via fractional spacing, so the job is
-making every bullet line sit in the fill band.
-
-1. Render a draft PNG: `just png <variant>` → `out/<variant>-draft.png`.
-2. Read the PNG. The text is black; a line is flagged with a translucent
-   highlight (see `theme/config.typ` for exact colours):
-   - **no highlight** — good, leave it.
-   - **blue highlight** — too short, it was stretched to fill → add words / merge a clause up.
-   - **red highlight** — too long, it was squeezed → rewrite shorter / split across lines.
-   - section **rules** blue = page too airy (add content); red = too cramped (cut).
-3. Edit the offending lines in `content/**` and re-render. Repeat until every line is
-   black and the resume is one page.
-4. Final check: `just build <variant>` is the clean (all-black) PDF that ships.
-
-Do **not** widen the fit band in `theme/config.typ` to make content pass — the band
-is a deliberate forcing function; rewrite the lines instead.
-
-For heavy tuning, delegate the loop to the `resume-tuner` subagent with the variant
-name; it runs render→read→rewrite autonomously and reports back.
+Copy an existing `variants/*.typ`, change the imports to the entries you want,
+and list the `*_section(...)` calls in display order (each takes an optional
+`title:`, e.g. "Research Experience"). `content/skills.typ` exports one named
+skill set per variant; import the one you want as `skills`.

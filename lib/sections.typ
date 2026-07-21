@@ -5,17 +5,41 @@
 #import "../theme/config.typ": config, fs, gap
 #import "engine.typ": render-bullet, fit-line
 
-// Section rules carry the page-density signal in draft builds: `resume` measures
-// the page and stores red (too cramped) / amber (too airy) / black (good) here.
+// Section rules carry the page-density signal in draft builds: `resume` stores
+// red (too cramped) / blue (too airy) / black (good) here.
 #let rule-color = state("resume-rule-color", config.color.rule)
 
-#let set-density(body) = layout(region => {
-  let needed = measure(body, width: region.width).height
-  let free = (region.height - needed) / region.height
-  let col = if free < config.density.lo { config.color.dense } else if (
+// Page density, from ground truth: every `gap()` brackets itself with position
+// probes (see config.typ), so summing the probe pairs gives exactly how much of
+// the page the fr gaps absorbed. That drives the rule colour and a queryable
+// page record for `just fit`, including each gap kind's resolved size.
+#let set-density() = layout(region => {
+  let sizes = query(<gap-s>).zip(query(<gap-e>)).map(((s, e)) => (
+    key: s.value.key,
+    weight: s.value.weight,
+    pt: calc.max(e.value.y - s.value.y, 0.0),
+  ))
+  let free = sizes.map(g => g.pt).sum(default: 0.0) / region.height.pt()
+  let status = if free < config.density.lo { "cramped" } else if (
     free > config.density.hi
-  ) { config.color.sparse } else { config.color.rule }
-  rule-color.update(col)
+  ) { "airy" } else { "ok" }
+  rule-color.update((
+    cramped: config.color.dense, airy: config.color.sparse, ok: config.color.rule,
+  ).at(status))
+  let kinds = (:)
+  for g in sizes {
+    let k = kinds.at(g.key, default: (weight: g.weight, count: 0, total: 0.0))
+    kinds.insert(g.key, (weight: g.weight, count: k.count + 1, total: k.total + g.pt))
+  }
+  [#metadata((
+    kind: "page",
+    status: status,
+    free: calc.round(free, digits: 3),
+    band: (config.density.lo, config.density.hi),
+    line_band: (config.fit.min_fill, config.fit.max_fill),
+    font_size: config.font.size.pt(),
+    gaps: kinds,
+  )) <fit>]
 })
 
 // --- small typographic helpers -------------------------------------------------

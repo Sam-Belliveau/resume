@@ -44,7 +44,7 @@
   )
 
   // Draft builds colour the section rules by how full the page is.
-  if config.draft { set-density(body) }
+  if config.draft { set-density() }
 
   gap("page_top")
   if header != none { render-header(header) }
