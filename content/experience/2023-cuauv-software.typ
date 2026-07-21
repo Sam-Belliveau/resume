@@ -7,10 +7,10 @@
   dates: "Nov 2023 — Present",
   bullets: (
     bullet(
-      line[Cut CPU usage by 80% by offloading the heavy Kalman-filter computations onto the GPU using NVIDIA's CUDA framework.],
+      line[Cut CPU usage by 80% by moving the vehicle's Kalman-filter state estimation onto the GPU with NVIDIA's CUDA toolkit.],
     ),
     bullet(
-      line[Improved autonomous navigation precision by implementing least-squares optimization for dynamic thruster allocation.],
+      line[Improved the sub's navigation precision by recasting dynamic thruster allocation as a real-time least-squares optimization.],
     ),
   ),
 )

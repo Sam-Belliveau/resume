@@ -6,10 +6,10 @@
   dates: "Aug 2021 — Dec 2021",
   bullets: (
     bullet(
-      line[Implemented the GameBoy's entire Z80 CPU instruction set using only publicly available hardware documentation.],
+      line[Implemented the GameBoy's entire Z80 instruction set in Rust from publicly available hardware documentation alone.],
     ),
     bullet(
-      line[Built a rudimentary pixel-processing unit (PPU) that renders the console's sprites and background tiles to the screen.],
+      line[Built a rudimentary pixel-processing unit (PPU) that draws the console's sprites and background tiles onto the screen.],
     ),
   ),
 )

@@ -7,13 +7,13 @@
   dates: "01/2025 — Present",
   bullets: (
     bullet(
-      line[Graded weekly laboratory assignments and gave students detailed feedback on their report quality and source code.],
+      line[Graded weekly laboratory assignments, giving students detailed feedback on their source code and written reports.],
     ),
     bullet(
-      line[Assisted student groups during lab sessions with debugging their hardware and software and completing experiments.],
+      line[Helped lab groups debug their hardware and software during sessions and guided them through the weekly experiments.],
     ),
     bullet(
-      line[Documented pin configurations and hardware specifications for the lab equipment to streamline the overall student workflow.],
+      line[Documented pin configurations and hardware specifications for the lab equipment to streamline the student workflow.],
     ),
   ),
 )

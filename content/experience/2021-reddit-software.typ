@@ -7,10 +7,10 @@
   dates: "July 2021 — Sept 2021",
   bullets: (
     bullet(
-      line[Authored comprehensive unit tests to ensure reliability and prevent regressions in user feedback analysis before deployment.],
+      line[Built a notification system for moderator-engagement campaigns, querying BigQuery and storing state in Cassandra.],
     ),
     bullet(
-      line[Leveraged BigQuery and Cassandra to architect a scalable notification system for moderator-engagement campaigns.],
+      line[Wrote the unit-test suite for a user-feedback analysis pipeline, catching regressions before they reached production.],
     ),
   ),
 )

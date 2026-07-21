@@ -18,9 +18,20 @@
     "BigQuery", "NumPy", "SciPy", "PyTorch"),
 )
 
+#let quant = skills(
+  category("Languages",
+    [#emph[Proficient] — Python, C, C++, Java, Rust, Swift#h(1em)#emph[Familiar] — OCaml, SQL, Verilog HDL]),
+  category("Numerics & ML",
+    "NumPy", "SciPy", "JAX", "PyTorch", "Monte-Carlo Simulation", "Least-Squares & Convex Optimization"),
+  category("Signal Processing",
+    "Kalman Filters", "Adaptive Filters (LMS / RLS)", "Spectral Analysis", "Cross-Correlation / TDOA"),
+  category("Systems",
+    "CUDA", "HLS / FPGA", "RP2040 / DMA", "Linux", "Docker", "Git"),
+)
+
 #let research = skills(
   category("Languages",
-    [#emph[Proficient] — C++, Python, Swift, Rust#h(1em)#emph[Familiar] — C, C\#, Go, Java, JavaScript]),
+    [#emph[Proficient] — C, C++, Python, Swift, Rust, Java#h(1em)#emph[Familiar] — C\#, Go, JavaScript]),
   category("ML & Perception",
     "PyTorch", "NumPy", "SciPy", "Apple Vision", "Computer Vision", "Signal Processing"),
   category("Graphics & GPU",

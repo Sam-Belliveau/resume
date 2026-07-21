@@ -7,10 +7,10 @@
   dates: "Jan 2023 — May 2023",
   bullets: (
     bullet(
-      line[Engineered an automated Sharp-Wave-Ripple detection pipeline in Python and SciPy to process large EEG datasets.],
+      line[Built an automated sharp-wave-ripple detector in Python and SciPy to pull candidate events out of large EEG datasets.],
     ),
     bullet(
-      line[Analyzed ripple characteristics to refine the detection algorithms and directly improve the lab's seizure-prediction models.],
+      line[Analyzed the characteristics of detected ripples to tune the detector and sharpen the lab's seizure-prediction models.],
     ),
   ),
 )

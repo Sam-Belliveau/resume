@@ -7,13 +7,13 @@
   dates: "Dec 2018 — June 2022",
   bullets: (
     bullet(
-      line[Led and taught a 50-member software team writing the controls for a 120 lb robot competing in FRC Championships.],
+      line[Led a 50-member software team writing the control code for a 120 lb robot that competed at the FRC Championships.],
     ),
     bullet(
-      line[Implemented, taught, and documented PID control, odometry, digital filtering, and motion profiling for the whole team.],
+      line[Implemented, taught, and documented PID control, odometry, digital filtering, and motion profiling across the whole team.],
     ),
     bullet(
-      line[Communicated the software design to competition judges and won four Innovation in Control Awards across seasons.],
+      line[Presented the software design to competition judges and won four Innovation in Control Awards across four seasons.],
     ),
   ),
 )

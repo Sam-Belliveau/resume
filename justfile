@@ -2,7 +2,7 @@
 # `just` on its own lists the recipes.
 
 fontdir := "fonts"
-variants := "swe robotics research"
+variants := "swe robotics research quant"
 
 default:
     @just --list

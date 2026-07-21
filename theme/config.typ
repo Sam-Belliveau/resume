@@ -44,8 +44,9 @@
     strong: "bold",
   ),
   // Paragraph line height. The only non-fr vertical metric, because it is a
-  // property of the type, not padding between elements.
-  leading: 0.4em,
+  // property of the type, not padding between elements. Kept visibly tighter
+  // than `bullet_gap` so a multi-line bullet reads as one unit, not a paragraph.
+  leading: 0.3em,
   // Vertical gaps, as `tier()` weights (only ratios matter). A gap's tier is how
   // SEPARATE the two things it divides are in the document tree — proximity = grouping.
   // `leading` sits below tier 0: wrapped lines of one bullet are a single sentence.
