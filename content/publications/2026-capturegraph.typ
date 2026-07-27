@@ -5,5 +5,5 @@
   status: "In Prep",
   authors: [*S. Belliveau*, A. Davis],
   role: "First author",
-  contribution: "architected a Python DSL and iOS runtime that decouple capture procedures from user guidance.",
+  contribution: "designed a Python DSL and iOS runtime decoupling capture procedures from user guidance.",
 )

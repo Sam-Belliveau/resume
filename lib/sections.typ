@@ -140,7 +140,7 @@
     // Fit the authors/title to the column minus the right-aligned status (plus a
     // reserved gap); `h(1fr)` then pushes the status flush right.
     layout(cell => {
-      let head = text(size: fs("detail"))[#p.authors. "#p.title."]
+      let head = text(size: fs("detail"))[#p.authors. #emph[#p.title].]
       let reserve = measure(status).width + measure(box(width: config.indent.date)).width
       fit-line(head, cell.width - reserve, expand: false)
       h(1fr)

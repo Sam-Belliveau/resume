@@ -3,7 +3,7 @@
 #let entry = education(
   school: "Cornell University — Duffield Engineering",
   location: "Ithaca, NY",
-  degree: "B.S. in Electrical & Computer Engineering",
+  degree: "B.S. in Electrical & Computer Engineering, Cum Laude",
   dates: "08/2023 — 05/2026",
   gpa: "3.7 / 4.3",
 )

@@ -7,10 +7,10 @@
   link: "https://github.com/StuyPulse/StuyLib",
   bullets: (
     bullet(
-      line[Created StuyLib, an award-winning control-theory and digital-filtering library now adopted by many other FRC teams.],
+      line[Created StuyLib, an award-winning control-theory and digital-filtering library adopted by many FRC teams.],
     ),
     bullet(
-      line[Kept the library easy to adopt and maintain with thorough JavaDocs and tagged JitPack releases other teams could pin.],
+      line[Kept it easy to adopt and maintain with thorough JavaDocs and tagged JitPack releases other teams could pin.],
     ),
   ),
 )

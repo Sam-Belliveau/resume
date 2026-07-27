@@ -13,9 +13,9 @@
 
 // The robotics résumé shows Cornell with relevant coursework appended.
 #let cornell-courses = (..cornell, bullets: (
-  bullet(lead: "Relevant Coursework",
-    line[Computer Science I–III, Discrete Structures, Digital Logic & Computer Organization, Linear Algebra,],
-    line[Differential Equations, Signals & Systems, Embedded Systems, Microcontrollers, Fast Robots, Optimal Control, and Data Science.],
+  bullet(lead: "Coursework",
+    line[Computer Science I–III, Digital Logic & Computer Organization, Signals & Systems, Fast Robots,],
+    line[Linear Algebra, Differential Equations, Embedded Systems, Microcontrollers, Optimal Control, Data Science.],
   ),
 ))
 

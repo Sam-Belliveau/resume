@@ -7,10 +7,10 @@
   dates: "July 2021 — Sept 2021",
   bullets: (
     bullet(
-      line[Built a notification system for moderator-engagement campaigns, querying BigQuery and storing state in Cassandra.],
+      line[Built a moderator-engagement notification system, querying BigQuery and storing state in Cassandra.],
     ),
     bullet(
-      line[Wrote the unit-test suite for a user-feedback analysis pipeline, catching regressions before they reached production.],
+      line[Wrote the unit-test suite for a user-feedback analysis pipeline, catching regressions before production.],
     ),
   ),
 )

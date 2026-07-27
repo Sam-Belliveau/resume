@@ -25,15 +25,15 @@
     margin: (x: 0.5in, y: 0.5in),
   ),
   font: (
-    family: "Source Sans 3",
-    size: 10pt,
+    family: "Source Serif 4",
+    size: 11pt,
     fallback: false,
   ),
   // Type sizes as multiples of `body` (= font.size), resolved by `fs`. Size ranks
   // the structural levels; entry titles rank up by weight, so they cost no height.
   scale: (
-    name: 2.50, //   the name — dominates the page
-    section: 1.10, // section headings (smallcaps + bold rank them too)
+    name: 18 / 11, // the name (18pt) — dominates the page
+    section: 14 / 11, // section headings (14pt; smallcaps + bold rank them too)
     title: 1.00, //  entry titles — set apart by weight, not size
     body: 1.00, //   reading baseline; the anchor for every other size
     detail: 1.00, // supporting text — dates, roles, locations

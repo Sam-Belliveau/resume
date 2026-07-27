@@ -6,10 +6,10 @@
   dates: "Sept 2022 — Present",
   bullets: (
     bullet(
-      line[Improved performance on low-end hardware by dynamically scaling the frequency of the emulated video interrupt.],
+      line[Improved low-end hardware performance by dynamically scaling the emulated video interrupt's frequency.],
     ),
     bullet(
-      line[Wrote six GPU-accelerated resolution-scaling algorithms in GLSL to sharpen the emulator's output across diverse displays.],
+      line[Wrote six GPU-accelerated resolution-scaling algorithms in GLSL to sharpen output across diverse displays.],
     ),
   ),
 )
