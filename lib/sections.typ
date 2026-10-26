@@ -118,10 +118,11 @@
 }
 
 // A numbered citation with a hanging indent under the "[n]" marker:
-//   [1] Authors. "Title."                              Venue — Status
+//   [1] Title.                                         Venue — Status
+//       Authors.
 //       Role — contribution.
-// `authors` is content with the candidate's name bolded inline; the title is
-// smart-quoted; status is right-aligned like every other date in the resume.
+// The title is italic; `authors` is content with the candidate's name bolded
+// inline; status is right-aligned like every other date in the resume.
 //
 // The two lines are emitted at the TOP LEVEL (separated by a normal `gap`, which is
 // a page-distributed `v(1fr)`); each line is a `cite, 1fr` grid only for the hanging
@@ -137,16 +138,19 @@
   let status = _date(p.status)
   _cite-row(
     text(size: fs("detail"))[#("[" + str(n) + "]")],
-    // Fit the authors/title to the column minus the right-aligned status (plus a
-    // reserved gap); `h(1fr)` then pushes the status flush right.
+    // Fit the title to the column minus the right-aligned status (plus a reserved
+    // gap); `h(1fr)` then pushes the status flush right. The title gets its own row
+    // so a long published title never has to share it with the author list.
     layout(cell => {
-      let head = text(size: fs("detail"))[#p.authors. #emph[#p.title].]
+      let head = text(size: fs("detail"), emph[#p.title.])
       let reserve = measure(status).width + measure(box(width: config.indent.date)).width
       fit-line(head, cell.width - reserve, expand: false)
       h(1fr)
       status
     }),
   )
+  gap("head_to_sub")
+  _cite-row([], layout(cell => fit-line(text(size: fs("detail"))[#p.authors.], cell.width, expand: false)))
   if p.role != none or p.contribution != none {
     gap("head_to_sub")
     let detail = text(size: fs("detail"), fill: config.color.muted)[#p.role#if p.contribution != none [ — #p.contribution]]
@@ -154,9 +158,12 @@
   }
 }
 
+// Each category is one fitted line across the full column, like a bullet line —
+// justified edge to edge and fit-checked, so the author tunes its items to fill
+// exactly one row instead of letting it wrap or end ragged.
 #let render-skills(s) = for (i, c) in s.categories.enumerate() {
   if i > 0 { gap("bullet_gap") }
-  [#_name[#c.label: ]#c.items.join(config.sep.tech)]
+  layout(cell => fit-line([#_name[#c.label: ]#c.items.join(config.sep.tech)], cell.width))
 }
 
 // One honour per line: bold name — italic detail, date flush right. The date is

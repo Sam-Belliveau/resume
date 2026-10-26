@@ -13,7 +13,7 @@
       line[Implemented, taught, and documented PID control, odometry, digital filtering, and motion profiling.],
     ),
     bullet(
-      line[Presented the software design to judges and won four Innovation in Control Awards across four seasons.],
+      line[Presented the software design to judges, winning four Innovation in Control Awards in 2020 and 2022.],
     ),
   ),
 )

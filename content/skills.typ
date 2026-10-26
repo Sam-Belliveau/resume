@@ -15,27 +15,38 @@
   _languages,
   category("Technologies",
     "Git", "Linux", "Docker", "VS Code", "ROS", "Cassandra",
-    "BigQuery", "NumPy", "SciPy", "PyTorch"),
+    "BigQuery", "NumPy", "SciPy", "PyTorch", "JAX", "CUDA"),
 )
 
 #let quant = skills(
   category("Languages",
-    [#emph[Proficient] — Python, C, C++, Java, Rust, Swift#h(1em)#emph[Familiar] — OCaml, SQL, Verilog HDL]),
+    [#emph[Proficient] — Python, C, C++, Java, Rust, Swift#h(1em)#emph[Familiar] — OCaml, Go, SQL, Verilog HDL, Bash]),
   category("Numerics & ML",
     "NumPy", "SciPy", "JAX", "PyTorch", "Monte-Carlo Simulation", "Least-Squares & Convex Optimization"),
   category("Signal Processing",
     "Kalman Filters", "Adaptive Filters (LMS / RLS)", "Spectral Analysis", "Cross-Correlation / TDOA"),
   category("Systems",
-    "CUDA", "HLS / FPGA", "RP2040 / DMA", "Linux", "Docker", "Git"),
+    "CUDA", "HLS / FPGA (Allo, Alveo U280)", "RP2040 / DMA", "Embedded C", "SQLite", "Linux", "Docker", "Git"),
 )
 
 #let research = skills(
   category("Languages",
-    [#emph[Proficient] — C, C++, Python, Swift, Rust, Java#h(1em)#emph[Familiar] — C\#, Go, JavaScript]),
+    [#emph[Proficient] — C, C++, Python, Swift, Rust, Java#h(1em)#emph[Familiar] — C\#, Go, JavaScript, OCaml, SQL, Bash]),
   category("ML & Perception",
-    "PyTorch", "NumPy", "SciPy", "Apple Vision", "Computer Vision", "Signal Processing"),
+    "PyTorch", "JAX", "NumPy", "SciPy", "ARKit", "Apple Vision", "Computer Vision", "Signal Processing"),
   category("Graphics & GPU",
-    "GLSL", "OpenGL", "CUDA", "SFML", "Real-Time Rendering"),
+    "GLSL", "OpenGL", "Metal", "CUDA", "SFML", "Real-Time Rendering", "HDR Output", "Image Resampling"),
   category("Systems & Embedded",
-    "ROS", "HLS / FPGA", "Verilog HDL", "RP2040 / DMA", "Linux", "Docker", "Git"),
+    "ROS", "HLS / FPGA", "Verilog HDL", "RP2040 / DMA", "iOS", "SQLite", "Linux", "Docker", "Git"),
+)
+
+#let ndseg = skills(
+  category("Sensing & Estimation",
+    "Kalman Filters", "LMS / RLS Adaptive Filters", "TDOA Cross-Correlation", "Blue-Noise Sampling"),
+  category("ML & Vision",
+    "PyTorch", "JAX", "NumPy", "SciPy", "ARKit", "Apple Vision", "Structure from Motion", "Gaussian Splatting"),
+  category("Systems",
+    "CUDA", "HLS / FPGA (Allo)", "RP2040 / DMA", "Embedded C", "iOS", "ROS", "SQLite", "CMake", "Linux", "Docker", "Git"),
+  category("Languages",
+    [#emph[Proficient] — Python, C, C++, Swift, Java, Rust#h(1em)#emph[Familiar] — OCaml, Go, SQL, Verilog HDL, Bash]),
 )

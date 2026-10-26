@@ -1,15 +1,17 @@
 #import "../../lib/lib.typ": project, bullet, line
 
+// Verified against the dolphin-emu/dolphin PR list (17 merged as of 10/2026).
 #let entry = project(
   title: "Dolphin Emulator",
-  tech: ("C++", "GLSL", "JIT Recompilation"),
+  tech: ("C++", "Audio DSP", "GLSL"),
   dates: "Sept 2022 — Present",
+  link: "https://github.com/dolphin-emu/dolphin/pulls?q=author%3ASam-Belliveau",
   bullets: (
     bullet(
-      line[Improved low-end hardware performance by dynamically scaling the emulated video interrupt's frequency.],
+      line[Wrote a granular-synthesis audio system that keeps sound smooth on low-end phones when emulation slows.],
     ),
     bullet(
-      line[Wrote six GPU-accelerated resolution-scaling algorithms in GLSL to sharpen output across diverse displays.],
+      line[Merged 17 pull requests, several featured in progress reports, including VI Skip and HDR output on Metal.],
     ),
   ),
 )

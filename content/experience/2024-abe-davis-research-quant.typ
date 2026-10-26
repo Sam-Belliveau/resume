@@ -1,28 +1,28 @@
 #import "../../lib/lib.typ": experience, bullet, line
 
-// Quant-angled view of the Davis-lab work: leads with the importance-sampling
-// core of CaptureGraph rather than the AR/graphics side. Facts verified against
-// the CaptureGraph repo (scheduling/ package, git history, figure notebooks).
+// Quant-angled view of the Davis-lab work: leads with the sampling core of
+// CaptureGraph rather than the AR/graphics side. Facts verified against the
+// CaptureGraph repo and the NSF GRFP research plan (Oct 2026).
 #let entry = experience(
   organization: "Cornell University — Prof. Abe Davis Lab",
-  title: "Undergraduate Researcher",
+  title: "Undergraduate Researcher → Ph.D. Student",
   location: "Ithaca, NY",
   dates: "06/2023 — Present",
   bullets: (
     bullet(lead: "CaptureGraph (First Author)",
-      line[Built a distribution-aware data-collection framework in 900+ commits —],
-      line[a Python DSL, iOS runtime, and team server — scheduling captures by their marginal statistical value.],
+      line[Lead a field data-collection system (900+ commits) in which each study],
+      line[declares the data distribution it needs and a server decides what each participant's phone captures next.],
     ),
     bullet(
-      line[Adapted Void-and-Cluster blue-noise sampling into an importance sampler over Gaussian-kernel energies,],
-      line[combining solar geometry, weather, location, and time-of-day distances under one shared L2 metric.],
+      line[Adapted void-and-cluster blue-noise sampling into the request scheduler: a Gaussian-kernel density over sun],
+      line[position, weather, location, and time, combined under one L2 metric, finds the least-covered conditions.],
     ),
     bullet(
-      line[Validated the sampler in a year-long Monte-Carlo simulation of four captures per day, measuring max-min],
-      line[solar-angle coverage against random baselines and two human timelapse datasets of 945 and 409 captures.],
+      line[In simulation, routing nearby requests together yields 1.8× the photos per hour of sending them one at a time;],
+      line[at a campus site, 40 unguided outings left a gap in sun positions that 15 guided outings nearly closed.],
     ),
     bullet(lead: "CineCraft (CHI 2026)",
-      line[Second author; designed and built the real-time subject-tracking and stabilization loop.],
+      line[Second author; built the real-time capture loop and its filter for tracking–zoom jitter.],
     ),
   ),
 )

@@ -7,10 +7,10 @@
   link: "https://github.com/Sam-Belliveau/Audio-Triangulation",
   bullets: (
     bullet(
-      line[Built an under-\$20 acoustic camera on a Raspberry Pi Pico sampling three mics at 50 kHz via ping-pong DMA.],
+      line[Led a team of three building a \$20 acoustic camera: a Raspberry Pi Pico samples three mics at 50 kHz via DMA.],
     ),
     bullet(
-      line[Interleaved a light comb-filter event detector with a heavier cross-correlation engine for TDOA estimates.],
+      line[An energy-based detector picks out sound events; cross-correlation turns their time delays into a direction.],
     ),
   ),
 )

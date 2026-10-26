@@ -7,10 +7,10 @@
   dates: "Jan 2023 — May 2023",
   bullets: (
     bullet(
-      line[Built a sharp-wave-ripple detector in Python and SciPy to flag candidate events in large EEG datasets.],
+      line[Built a sharp-wave-ripple detector in Python and SciPy to flag candidate events in large EEG recordings.],
     ),
     bullet(
-      line[Characterized the detected ripples to tune the detector and sharpen the lab's seizure-prediction models.],
+      line[Characterized the detected ripples to tune the detector and to inform the lab's seizure-prediction models.],
     ),
   ),
 )

@@ -2,14 +2,15 @@
 
 #let entry = project(
   title: "GameBoy Emulator",
-  tech: ("Rust", "Z80 Assembly", "Hardware Emulation"),
-  dates: "Aug 2021 — Dec 2021",
+  tech: ("Rust", "Sharp LR35902", "Hardware Emulation"),
+  dates: "05/2020 — 06/2020",
+  link: "https://github.com/Sam-Belliveau/TheSamBoy",
   bullets: (
     bullet(
-      line[Implemented the GameBoy's entire Z80 instruction set in Rust from public hardware documentation alone.],
+      line[Mapped every opcode of the GameBoy's Z80-like CPU and implemented its loads, jumps, and 8-bit math.],
     ),
     bullet(
-      line[Built a rudimentary pixel-processing unit (PPU) that draws the console's sprites and background tiles.],
+      line[Added a basic graphics unit, joypad input, interrupts, a timer, and a memory bus with cartridge support.],
     ),
   ),
 )

@@ -10,7 +10,7 @@
       line[quantizing floating-point logits into deterministic integer counts so the encoder and decoder agree bit-for-bit.],
     ),
     bullet(
-      line[Made the coder bijective on bits, so ChaCha20-encrypted payloads decode to fluent text under any key.],
+      line[Made it a bijection between bit strings and text, so a ChaCha20 ciphertext decodes to fluent text under any key.],
     ),
   ),
 )

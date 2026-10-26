@@ -7,11 +7,11 @@
   link: "https://github.com/Sam-Belliveau/flying-dutchman",
   bullets: (
     bullet(
-      line[Built a UCI chess engine in Rust around alpha-beta search with iterative deepening, then added opponent],
-      line[modeling: opponent nodes consider only moves a shallow search says look strong, mimicking human play.],
+      line[Built a Rust UCI chess engine on alpha-beta search with iterative deepening, then added opponent modeling:],
+      line[on the opponent's turns it searches only the moves a shallow search rates highly, as a human would.],
     ),
     bullet(
-      line[Fielded it as a Lichess bot, then ran trap-seeking searches in lc0 driven by Maia's human-likeness networks.],
+      line[Ran it as a Lichess bot, then used Maia's human-move networks inside lc0 to search for traps humans fall into.],
     ),
   ),
 )

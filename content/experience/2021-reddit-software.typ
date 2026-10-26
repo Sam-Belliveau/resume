@@ -10,7 +10,7 @@
       line[Built a moderator-engagement notification system, querying BigQuery and storing state in Cassandra.],
     ),
     bullet(
-      line[Wrote the unit-test suite for a user-feedback analysis pipeline, catching regressions before production.],
+      line[Wrote the unit-test suite for the team's user-feedback analysis pipeline, catching regressions before deploy.],
     ),
   ),
 )

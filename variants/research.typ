@@ -7,8 +7,8 @@
 #import "../content/education/hofstra.typ": entry as hofstra
 #import "../content/publications/2026-capturegraph.typ": entry as capturegraph
 #import "../content/publications/2025-cinecraft.typ": entry as cinecraft
-#import "../content/publications/2025-dynabox.typ": entry as dynabox
 #import "../content/experience/2024-abe-davis-research.typ": entry as abe-davis
+#import "../content/experience/2026-ta-cs-4787.typ": entry as ta-ml
 #import "../content/experience/2025-ta-ece-4760.typ": entry as ta
 #import "../content/experience/2022-vex-robotics.typ": entry as vex
 #import "../content/honors.typ": entry as honors
@@ -25,8 +25,8 @@
 // drop the SmolVLA project, then the VEX teaching entry, then Hofstra.
 #education_section(phd, cornell, hofstra)
 #experience_section(abe-davis, title: "Research Experience")
-#publication_section(capturegraph, cinecraft, dynabox)
-#experience_section(ta, vex, title: "Teaching Experience")
+#publication_section(capturegraph, cinecraft)
+#experience_section(ta-ml, ta, vex, title: "Teaching Experience")
 #project_section(sound-localization, smolvla, title: "Selected Projects")
-#awards_section(honors)
+#awards_section(honors, title: "Recognition")
 #skills_section(skills)
