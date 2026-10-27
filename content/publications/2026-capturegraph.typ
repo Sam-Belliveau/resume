@@ -5,5 +5,5 @@
   status: "In Prep",
   authors: [*S. Belliveau*, A. Davis],
   role: "First author",
-  contribution: "wrote the Python library, iOS app, and server; decouples a study's data needs from guidance.",
+  contribution: "designed and built the system, separating what a study needs from how people are guided.",
 )

@@ -1,8 +1,9 @@
 #import "../../lib/lib.typ": experience, bullet, line
 
 // Facts follow the CaptureGraph NSF GRFP statements (Oct 2026), which supersede
-// older résumé wording: field sites, the 18,408-photo campus study, and the
-// emergency-medicine adoption all come from there.
+// older résumé wording. Lead with the problem and the system, not the tools:
+// field data is scarce and biased because people collect it on their own
+// routines, and CaptureGraph closes the loop between data collected and guidance.
 #let entry = experience(
   organization: "Cornell University — Prof. Abe Davis Lab",
   title: "Undergraduate Researcher → Ph.D. Student",
@@ -10,16 +11,19 @@
   dates: "06/2023 — Present",
   bullets: (
     bullet(lead: "CaptureGraph (Project Lead)",
-      line[Lead a system in which researchers write field-capture protocols in],
-      line[Python and one iOS app runs any of them, guiding people with AR and requesting the data a study still lacks.],
+      line[Lead a general-purpose system for collecting scientific field data with phones:],
+      line[a researcher writes a capture protocol, and one app guides anyone through it, with no custom app per study.],
     ),
     bullet(
-      line[Took it into a maize field and to a campus site, where three participants took 18,408 RAW photos over three],
-      line[weeks. A Cornell team working with Weill Cornell physicians adopted its protocol format for emergency care.],
+      line[Each study declares the data it needs, and every phone's guidance updates as data arrives to show what is],
+      line[still missing, so people's limited time goes to the gaps rather than to wherever their routines take them.],
+    ),
+    bullet(
+      line[Ran it in a maize field with agriculture researchers and in a three-week, 18,408-photo campus stress test.],
+      line[A Cornell team working with Weill Cornell doctors adopted its protocol format and library for emergency care.],
     ),
     bullet(lead: "CineCraft (CHI 2026)",
-      line[Built the real-time capture loop for a phone app that guides solo filmmakers],
-      line[through planned shots, with a filter that keeps subject tracking and auto-zoom from making the guide jitter.],
+      line[Built the capture loop for an app that guides solo filmmakers through planned shots.],
     ),
   ),
 )

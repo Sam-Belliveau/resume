@@ -11,20 +11,20 @@
   dates: "06/2023 — Present",
   bullets: (
     bullet(lead: "CaptureGraph (Project Lead)",
-      line[Lead development of a closed-loop field-sensing system: each study declares],
-      line[the data distribution it needs, and a server directs every participant's phone toward what is still missing.],
+      line[Lead a general-purpose system that guides people as they collect field data:],
+      line[each study declares the data it needs, and a server steers every participant's phone toward what is still missing.],
     ),
     bullet(
-      line[Adapted void-and-cluster sampling to request the least-covered conditions across sun position, weather,],
-      line[location, and time of day; in simulation, routing nearby requests together yields 1.8× the photos per hour.],
+      line[Field data is biased toward when and where people happen to go, so the server requests the conditions least],
+      line[covered so far (sun, weather, place, time); in simulation, batching nearby requests gave 1.8× photos per hour.],
     ),
     bullet(
-      line[Merged several people's ARKit scans of a maize field into one 3D model, each scan aligned to a shared anchor;],
-      line[at a campus site, three participants took 18,408 RAW photos of one view over three weeks, from dawn to dusk.],
+      line[With agriculture researchers, several people's scans of a maize field merged into one 3D model. On campus,],
+      line[40 routine outings left a gap in sun positions; once the app showed it, 15 more nearly closed it (18,408 photos).],
     ),
     bullet(
-      line[There, 40 unguided outings left a gap in sun positions that 15 guided outings nearly closed. A Cornell team],
-      line[working with Weill Cornell physicians adopted its protocol format and Python library for emergency care.],
+      line[A Cornell team working with Weill Cornell physicians adopted its protocol format and Python library],
+      line[to turn medical documents into step-by-step procedures that first responders complete while treating patients.],
     ),
   ),
 )

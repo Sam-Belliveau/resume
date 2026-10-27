@@ -10,16 +10,16 @@
   dates: "06/2023 — Present",
   bullets: (
     bullet(lead: "CaptureGraph (First Author)",
-      line[Lead a field data-collection system (900+ commits) in which each study],
-      line[declares the data distribution it needs and a server decides what each participant's phone captures next.],
+      line[Lead a general-purpose system for scientific field data collection: each study],
+      line[declares the data distribution it needs, and a server decides what each participant's phone captures next.],
     ),
     bullet(
-      line[Adapted void-and-cluster blue-noise sampling into the request scheduler: a Gaussian-kernel density over sun],
-      line[position, weather, location, and time, combined under one L2 metric, finds the least-covered conditions.],
+      line[Treated scheduling as a sampling problem: people's routines bias what they collect, so the server adapts],
+      line[void-and-cluster blue-noise sampling to request the conditions least covered so far (sun, weather, place, time).],
     ),
     bullet(
-      line[In simulation, routing nearby requests together yields 1.8× the photos per hour of sending them one at a time;],
-      line[at a campus site, 40 unguided outings left a gap in sun positions that 15 guided outings nearly closed.],
+      line[In simulation, batching nearby requests into one walk yields 1.8× the photos per hour of one at a time; at a],
+      line[campus site, 40 routine outings left a gap in sun positions that 15 more nearly closed once the app showed it.],
     ),
     bullet(lead: "CineCraft (CHI 2026)",
       line[Second author; built the real-time capture loop and its filter for tracking–zoom jitter.],
