@@ -179,6 +179,24 @@
   block(width: 100%, row)
 }
 
+// --- redacted (blind-review) entries -------------------------------------------
+// For applications reviewed blind, like the NDSEG redacted résumé: an entry is
+// its position title and dates only — no organization or location row.
+#let render-position(e) = {
+  _row(_entry-title(e.title), _date(e.dates))
+  gap("sub_to_bullets")
+  _bullets(e.bullets)
+}
+
+// Fitted lines with no bullet marker, for a summary paragraph.
+#let _prose(lines) = layout(cell => {
+  let last = lines.len() - 1
+  for (i, ln) in lines.enumerate() {
+    fit-line(ln.body, cell.width, expand: ln.expand)
+    if i != last { linebreak() }
+  }
+})
+
 // --- section assembly ----------------------------------------------------------
 
 #let _section(title, body) = {
@@ -212,6 +230,9 @@
 #let publication_section(title: "Publications", ..e) = _section(title, _numbered-entries(e.pos(), render-publication))
 #let skills_section(s, title: "Skills") = _section(title, render-skills(s))
 #let awards_section(a, title: "Honors & Awards") = _section(title, render-awards(a))
+#let position_section(title: "Experience", ..e) = _section(title, _entries(e.pos(), render-position))
+#let list_section(title, ..b) = _section(title, _bullets(b.pos()))
+#let prose_section(title, ..lines) = _section(title, _prose(lines.pos()))
 
 // --- header --------------------------------------------------------------------
 

@@ -36,6 +36,15 @@ build variant:
 txt variant: (build variant)
     pdftotext -nopgbrk out/Sam-Belliveau-{{variant}}.pdf out/Sam-Belliveau-{{variant}}.txt
 
+# The two NDSEG uploads, named as the application portal asks: the full CV as
+# Lastname_Firstname_Resume.pdf and the blind-review version as Redacted_Resume.pdf.
+ndseg:
+    mkdir -p out
+    typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2a \
+        variants/ndseg.typ out/Belliveau_Sam_Resume.pdf
+    typst compile --root . --font-path {{fontdir}} --input draft=false --pdf-standard a-2a \
+        variants/ndseg-redacted.typ out/Redacted_Resume.pdf
+
 # Build every variant's final PDF (+ .txt if pdftotext is present) into out/.
 all:
     #!/usr/bin/env bash
