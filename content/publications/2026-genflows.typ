@@ -8,5 +8,5 @@
   status: "In Prep",
   authors: [J. Segal, *S. Belliveau*, J. Dashe, L. Morin, A. Bellotti, R. Jotwani, J. Rubin, A. Davis, A. Taylor],
   role: "Second author",
-  contribution: "designed the procedure format and library that the system compiles each flowchart into.",
+  contribution: "designed the CaptureGraph procedure format and library each flowchart is compiled into.",
 )

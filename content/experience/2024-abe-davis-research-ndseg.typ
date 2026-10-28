@@ -12,18 +12,19 @@
   bullets: (
     bullet(lead: "CaptureGraph (Project Lead)",
       line[Lead a general-purpose system that guides people as they collect field data:],
-      line[each study declares the data it needs, and a server steers every participant's phone toward what is still missing.],
+      line[each study is a procedure declaring the data it needs, and a server steers every phone toward what is missing.],
     ),
     bullet(
       line[Field data is biased toward when and where people happen to go, so the server requests the conditions least],
-      line[covered so far (sun, weather, place, time); in simulation, batching nearby requests gave 1.8× photos per hour.],
+      line[covered so far (sun, weather, place, time). In simulation, sending each person to the nearest of 16 requests],
+      line(expand: false)[instead of the single least-covered one gave 1.8× the photos per hour at similar coverage.],
     ),
     bullet(
-      line[With agriculture researchers, several people's scans of a maize field merged into one 3D model. On campus,],
-      line[40 routine outings left a gap in sun positions; once the app showed it, 15 more nearly closed it (18,408 photos).],
+      line[In a maize field, three people's phones aligned to one anchor scan, so their scans merged into one 3D model.],
+      line[On campus, 40 routine outings left a gap in sun positions; 15 guided ones nearly closed it (18,408 photos in all).],
     ),
     bullet(
-      line[A Cornell team working with Weill Cornell physicians adopted its protocol format and Python library],
+      line[A Cornell team working with Weill Cornell physicians adopted its procedure format and Python library],
       line[to turn medical documents into step-by-step procedures that first responders complete while treating patients.],
     ),
   ),

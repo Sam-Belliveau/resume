@@ -5,5 +5,5 @@
   status: "In Prep",
   authors: [*S. Belliveau*, A. Davis],
   role: "First author",
-  contribution: "designed and built the system, separating what a study needs from how people are guided.",
+  contribution: "designed and built the system: each study declares its data, so a new study needs no new app.",
 )

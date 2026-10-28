@@ -7,7 +7,7 @@
   dates: "08/2026 — Present",
   bullets: (
     bullet(
-      line[Write and proctor the course's oral exams, answer student questions on Ed, and grade assignments.],
+      line[Write and give oral exams (asking questions, giving hints, grading); answer forum posts; grade assignments.],
     ),
   ),
 )

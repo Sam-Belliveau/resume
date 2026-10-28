@@ -42,9 +42,12 @@
 #experience_section(abe-davis, title: "Research Experience")
 #publication_section(capturegraph, genflows, cinecraft)
 #project_section(sound-localization, title: "Selected Project")
-// Two bullets keep the older TA entry short: the 3D extension of the acoustic
-// camera matters more here than the documentation work.
-#let ta-mcu-short = (..ta-mcu, bullets: ta-mcu.bullets.slice(0, 2))
+#let ta-mcu-short = (..ta-mcu, bullets: (
+  bullet(
+    line[Graded weekly labs, helped groups debug hardware and software, and improved the pin and equipment docs.],
+  ),
+  ta-mcu.bullets.at(1),
+))
 
 #experience_section(ta-ml, ta-mcu-short, title: "Teaching")
 // The robotics award is left out: Sam finds it a weak fit for NDSEG (Oct 2026).

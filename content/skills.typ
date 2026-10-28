@@ -46,7 +46,7 @@
   category("ML & Vision",
     "PyTorch", "JAX", "NumPy", "SciPy", "ARKit", "Apple Vision", "Structure from Motion", "Gaussian Splatting"),
   category("Systems",
-    "CUDA", "HLS / FPGA (Allo)", "RP2040 / DMA", "Embedded C", "iOS", "ROS", "SQLite", "CMake", "Linux", "Docker", "Git"),
+    "CUDA", "HLS / FPGA", "RP2040 / DMA", "Embedded C", "iOS", "ROS", "SQLite", "CMake", "Linux", "Docker", "Git"),
   category("Languages",
     [#emph[Proficient] — Python, C, C++, Swift, Java, Rust#h(1em)#emph[Familiar] — OCaml, Go, SQL, Verilog HDL, Bash]),
 )

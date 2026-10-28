@@ -38,21 +38,21 @@
 #skills_section(skills)
 
 #list_section("Awards",
-  bullet(line(expand: false)[Acoustic camera project featured by a widely read electronics news site (2025)]),
+  bullet(line(expand: false)[\$20 sound-locating acoustic camera featured by a widely read electronics news site (2025)]),
 )
 
 #list_section("Publications",
   bullet(lead: "First author, in preparation",
-    line[A distribution-aware, programmable framework for guided field data capture.],
-    line[Designed and built the system, which separates what a study needs from how people are guided in the field.],
+    line[A framework that steers field data capture toward the conditions a dataset lacks.],
+    line[Designed and built the system: each study declares the data it needs, so a new study needs no new phone app.],
   ),
   bullet(lead: "Second author, medical AI journal, in preparation",
     line[Turning medical flowcharts into executable procedures.],
-    line[Contributed the procedure format and library, from the system I lead, that each flowchart is compiled into.],
+    line[Contributed the procedure format and library of the system I lead, which each flowchart is compiled into.],
   ),
   bullet(lead: "Second author, peer-reviewed HCI conference (2026)",
     line[Shot planning, capture, and post-processing for mobile],
-    line[cinematography. Built the real-time capture loop and a filter that removes the guide's tracking–zoom jitter.],
+    line[cinematography. Built the real-time capture loop and a filter that steadies its subject-tracking auto-zoom.],
   ),
 )
 
@@ -63,11 +63,11 @@
   bullets: (
     bullet(
       line[Lead the development of a general-purpose system that guides people as they collect scientific field data:],
-      line[each study declares the data it needs, and a server steers every participant's phone toward what is still missing.],
+      line[each study is a procedure declaring the data it needs, and a server steers every phone toward what is missing.],
     ),
     ..abe-davis.bullets.slice(1, 3),
     bullet(
-      line[A university team working with physicians adopted its protocol format and library for emergency care,],
+      line[A university team working with physicians adopted its procedure format and library for emergency care,],
       line[turning medical documents into step-by-step procedures that first responders follow while treating patients.],
     ),
   ),
@@ -76,6 +76,16 @@
 #position_section(
   research,
   (..ta-ml, title: "Teaching Assistant — Large-Scale Machine Learning Systems"),
-  (..ta-mcu, title: "Teaching Assistant — Microcontrollers", bullets: ta-mcu.bullets.slice(0, 2)),
-  (..sound-localization, title: "Project Lead — Real-Time Sound Localization System"),
+  (..ta-mcu, title: "Teaching Assistant — Microcontrollers", bullets: (
+    bullet(
+      line[Graded weekly labs, helped groups debug hardware and software, and improved the pin and equipment docs.],
+    ),
+  )),
+  // The 3D extension moves here: in this order the device is described below the TA entry.
+  (..sound-localization, title: "Project Lead — Real-Time Sound Localization System", bullets: (
+    ..sound-localization.bullets,
+    bullet(
+      line[A later group I taught as a TA extended it to 3D with four mics; I explained its design and helped them debug.],
+    ),
+  )),
 )

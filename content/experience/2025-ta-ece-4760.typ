@@ -10,7 +10,7 @@
       line[Graded weekly labs and helped lab groups debug their hardware and software in each week's experiment.],
     ),
     bullet(
-      line[One Fall 2025 group extended our acoustic camera from the course to 3D localization with four microphones.],
+      line[One group extended my team's acoustic camera to 3D with four mics; I explained its design and helped debug.],
     ),
     bullet(
       line[Improved the course's documentation of the microcontroller's pin configurations and lab equipment.],
