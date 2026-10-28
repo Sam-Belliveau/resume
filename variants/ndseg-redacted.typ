@@ -39,13 +39,16 @@
 
 #list_section("Awards",
   bullet(line(expand: false)[Acoustic camera project featured by a widely read electronics news site (2025)]),
-  bullet(line(expand: false)[Innovation in Control Award, four-time recipient, international high-school robotics competition (2020 & 2022)]),
 )
 
 #list_section("Publications",
   bullet(lead: "First author, in preparation",
     line[A distribution-aware, programmable framework for guided field data capture.],
     line[Designed and built the system, which separates what a study needs from how people are guided in the field.],
+  ),
+  bullet(lead: "Second author, medical AI journal, in preparation",
+    line[Turning medical flowcharts into executable procedures.],
+    line[Contributed the procedure format and library, from the system I lead, that each flowchart is compiled into.],
   ),
   bullet(lead: "Second author, peer-reviewed HCI conference (2026)",
     line[Shot planning, capture, and post-processing for mobile],

@@ -6,6 +6,7 @@
 #import "../content/education/cornell.typ": entry as cornell
 #import "../content/experience/2024-abe-davis-research-ndseg.typ": entry as abe-davis
 #import "../content/publications/2026-capturegraph.typ": entry as capturegraph
+#import "../content/publications/2026-genflows.typ": entry as genflows
 #import "../content/publications/2025-cinecraft.typ": entry as cinecraft
 #import "../content/projects/2025-sound-localization.typ": entry as sound-localization
 #import "../content/experience/2026-ta-cs-4787.typ": entry as ta-ml
@@ -39,12 +40,13 @@
 
 #education_section(phd-focus, cornell-courses)
 #experience_section(abe-davis, title: "Research Experience")
-#publication_section(capturegraph, cinecraft)
+#publication_section(capturegraph, genflows, cinecraft)
 #project_section(sound-localization, title: "Selected Project")
 // Two bullets keep the older TA entry short: the 3D extension of the acoustic
 // camera matters more here than the documentation work.
 #let ta-mcu-short = (..ta-mcu, bullets: ta-mcu.bullets.slice(0, 2))
 
 #experience_section(ta-ml, ta-mcu-short, title: "Teaching")
-#awards_section(honors, title: "Recognition")
+// The robotics award is left out: Sam finds it a weak fit for NDSEG (Oct 2026).
+#awards_section((..honors, items: honors.items.slice(0, 1)), title: "Recognition")
 #skills_section(skills)
