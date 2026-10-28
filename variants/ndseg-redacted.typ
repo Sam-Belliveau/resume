@@ -8,7 +8,7 @@
 
 // Redacted twin of ndseg.typ, laid out like NDSEG's "Redacted Resume/CV"
 // template: Applicant Summary, Education & Certifications (chronological),
-// Skills, Awards, Publications, Experience (reverse chronological). NDSEG bars
+// Skills, Publications, Experience (reverse chronological). NDSEG bars
 // names of people, organizations, and institutions, and any detail that ties
 // back to the applicant — so no header, no school / lab / advisor / course
 // numbers / venue / project names, and no co-authors. Facts are the same as
@@ -37,9 +37,6 @@
 
 #skills_section(skills)
 
-#list_section("Awards",
-  bullet(line(expand: false)[\$20 sound-locating acoustic camera featured by a widely read electronics news site (2025)]),
-)
 
 #list_section("Publications",
   bullet(lead: "Second author, peer-reviewed HCI conference (2026)",
@@ -59,7 +56,7 @@
 // Both current positions end "Present"; the research position leads as the
 // longer-running one.
 #let research = (..abe-davis,
-  title: "Undergraduate Researcher → Ph.D. Student, Graphics, Vision & Interaction Lab",
+  title: "Undergraduate Researcher → Ph.D. Student",
   bullets: (
     bullet(
       line[Lead the development of a general-purpose system that guides people as they collect scientific field data:],
