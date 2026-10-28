@@ -42,6 +42,10 @@
 )
 
 #list_section("Publications",
+  bullet(lead: "Second author, peer-reviewed HCI conference (2026)",
+    line[Shot planning, capture, and post-processing for mobile],
+    line[cinematography. Built the real-time capture loop and a filter that steadies its subject-tracking auto-zoom.],
+  ),
   bullet(lead: "First author, in preparation",
     line[A framework that steers field data capture toward the conditions a dataset lacks.],
     line[Designed and built the system: each study declares the data it needs, so a new study needs no new phone app.],
@@ -49,10 +53,6 @@
   bullet(lead: "Second author, medical AI journal, in preparation",
     line[Turning medical flowcharts into executable procedures.],
     line[Contributed the procedure format and library of the system I lead, which each flowchart is compiled into.],
-  ),
-  bullet(lead: "Second author, peer-reviewed HCI conference (2026)",
-    line[Shot planning, capture, and post-processing for mobile],
-    line[cinematography. Built the real-time capture loop and a filter that steadies its subject-tracking auto-zoom.],
   ),
 )
 

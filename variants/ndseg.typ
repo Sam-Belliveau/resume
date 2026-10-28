@@ -40,7 +40,7 @@
 
 #education_section(phd-focus, cornell-courses)
 #experience_section(abe-davis, title: "Research Experience")
-#publication_section(capturegraph, genflows, cinecraft)
+#publication_section(cinecraft, capturegraph, genflows)
 #project_section(sound-localization, title: "Selected Project")
 #let ta-mcu-short = (..ta-mcu, bullets: (
   bullet(
