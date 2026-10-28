@@ -7,7 +7,7 @@
   organization: "Cornell University — Prof. Abe Davis Lab",
   title: "Undergraduate Researcher → Ph.D. Student",
   location: "Ithaca, NY",
-  dates: "06/2023 — Present",
+  dates: "06/2024 — Present",
   bullets: (
     bullet(lead: "CaptureGraph (First Author)",
       line[Lead a general-purpose system for scientific field data collection: each study],
